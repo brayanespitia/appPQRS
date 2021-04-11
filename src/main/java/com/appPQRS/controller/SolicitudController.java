@@ -5,7 +5,9 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +16,7 @@ import com.appPQRS.entity.Solicitud;
 import com.appPQRS.service.SolicitudService;
 
 @Controller
-@RequestMapping("/index")
+@RequestMapping("/solicitud")
 public class SolicitudController {
 	
 	
@@ -28,19 +30,31 @@ public class SolicitudController {
 		
 	}
 	
-	@GetMapping("/guardar")
+	@GetMapping("/registrar")
 	public String crear(Map<String, Object> model) {
 		Solicitud solicitud = new Solicitud();
 		model.put("solicitud", solicitud);
 		model.put("titulo", "formulario solicitud");
-		return"form";
+		return"registrar";
 		
 	}
 
-	@PostMapping("/guardar")
+	@PostMapping("/registrar")
 	public String guardar(@RequestBody Solicitud solicitud ) {
 		solicitudService.save(solicitud);
-		return "redirect:index";
+		return "registrar";
+		
+	}
+	
+	@DeleteMapping("/eliminar/{id}")
+	public String eliminar(@PathVariable (value="id") Long id) {
+		
+		
+		if (id > 0) {
+			solicitudService.delete(id);
+		}
+		
+		return "redirect/index";
 		
 	}
 	
