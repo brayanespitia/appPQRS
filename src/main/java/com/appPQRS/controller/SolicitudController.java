@@ -58,4 +58,17 @@ public class SolicitudController {
 		
 	}
 	
+	@GetMapping("/consultar")
+	public String consultar() {
+		
+		return "consultar";
+	}
+	
+	
+	@GetMapping("/login")
+	public String login() {
+		return "login";
+		
+	}
+	
 }
