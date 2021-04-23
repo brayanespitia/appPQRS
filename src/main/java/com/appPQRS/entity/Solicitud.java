@@ -1,14 +1,18 @@
 package com.appPQRS.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
 
 @Entity
-public class Solicitud {
+public class Solicitud implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -18,7 +22,7 @@ public class Solicitud {
 	
 	private String motivoSolicitud;
 	private String funcionario;
-	private String usuario;
+	
 	private String otroMotivo;
 	private String descripcion;
 	private String respuesta;
@@ -27,6 +31,15 @@ public class Solicitud {
 	private Date fechaRespuesta;
 	
 	
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Usuario usuario;
+	
+	
+	
+	@PrePersist
+	public void prePersist() {
+		fechaRegistro = new Date();
+	}
 	
 	public Solicitud() {
 		
@@ -69,16 +82,6 @@ public class Solicitud {
 	}
 
 
-
-	public String getUsuario() {
-		return usuario;
-	}
-
-
-
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
-	}
 
 
 
@@ -150,6 +153,18 @@ public class Solicitud {
 
 	public void setFechaRespuesta(Date fechaRespuesta) {
 		this.fechaRespuesta = fechaRespuesta;
+	}
+
+
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 	
 	
