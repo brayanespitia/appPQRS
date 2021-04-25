@@ -28,7 +28,7 @@
                         <a class="nav-link active" th:href="@{/}">Inicio</a>
                         <a class="nav-link" th:href="@{/solicitud/consultar}">Consultar</a>
                         <a class="nav-link" th:href="@{/solicitud/registrar}">Registrar PQRS</a>
-                                              <a class="nav-link" th:href="@{/usuario/registrarUsuario}">Registrar Usuario</a>
+                                              <a class="nav-link" th:href="@{/registrarUsuario}">Registrar Usuario</a>
 
                         <a class="nav-link" th:href="@{/solicitud/login}">Iniciar sesión</a>
                     </nav>
@@ -43,7 +43,7 @@
                         <h6 class="m-0 font-weight-bold text-primary">Registrar PQRS</h6>
                     </div>
                     <div class="card-body">
-                        <form action="registrar-pqrs" method="post" enctype="multipart/form-data">
+                        <form  method="post" enctype="multipart/form-data">
                             <div class="form-group">
                                 <h5 class="card-title">Datos del usuario</h5>
                                 <div class="form-row">

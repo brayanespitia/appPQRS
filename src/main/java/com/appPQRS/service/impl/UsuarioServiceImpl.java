@@ -40,4 +40,12 @@ public class UsuarioServiceImpl implements UsuarioService {
 		usuarioDao.deleteById(id);
 	}
 
+	@Override
+	public Usuario buscarCedula(String identificacion) {
+		// TODO Auto-generated method stub
+	 return	usuarioDao.buscarCedula(identificacion);
+		
+		
+	}
+
 }

@@ -14,5 +14,7 @@ public interface UsuarioService {
 	public Usuario findOne(Long id);
 
 	public void delete(Long id);
+	
+public Usuario buscarCedula(String identificacion);
 
 }
