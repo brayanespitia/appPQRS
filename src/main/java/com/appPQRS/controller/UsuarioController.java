@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.appPQRS.entity.Solicitud;
 import com.appPQRS.entity.Usuario;
@@ -23,9 +24,6 @@ import com.appPQRS.service.UsuarioService;
 
 @Controller
 public class UsuarioController {
-	
-	
-	
 
 	@Autowired
 	public UsuarioService usuarioService;
@@ -40,17 +38,19 @@ public class UsuarioController {
 	}
 
 	@RequestMapping(value = "/registrarUsuario", method = RequestMethod.POST)
-	public String guardar(@Valid Usuario usuario, BindingResult result, Model model) {
+	public String guardar(@Valid Usuario usuario, BindingResult result, Model model, RedirectAttributes flash) {
 		System.out.println("hola papu 2");
-		
+
 		Usuario user = usuarioService.buscarCedula(usuario.getIdentificacion());
-		
-		if	(user!= null) {
-			return "consultar";
+
+		if (user != null) {
+			
+			flash.addFlashAttribute("warning","La informacion del usuaraio ya se encuntra registrada");
+			
+			return "redirect:/registrarUsuario";
 		}
-		
-		
-		if (result.hasErrors() ) {
+
+		if (result.hasErrors()) {
 
 			model.addAttribute("titulo", "formulario usuario");
 
@@ -58,10 +58,11 @@ public class UsuarioController {
 			return "index";
 
 		}
-		
+
 		System.out.println("hola papu 3");
 		usuarioService.save(usuario);
-		return "redirect:/";
+		flash.addFlashAttribute("success","El usuario se ha registrado con Exito!!");
+		return "redirect:/registrarUsuario";
 	}
 
 }
