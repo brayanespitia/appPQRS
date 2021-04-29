@@ -35,13 +35,13 @@ public class SolicitudServiceImpl implements SolicitudService {
 	@Override
 	public Solicitud findOne(Long id) {
 		// TODO Auto-generated method stub
-		return null;
+		return solicitudDao.findById(id).get();
 	}
 
 	@Override
 	public void delete(Long id) {
 		// TODO Auto-generated method stub
-
+solicitudDao.deleteById(id);
 	}
 
 }

@@ -3,6 +3,8 @@ package com.appPQRS.controller;
 import java.util.List;
 import java.util.Map;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -40,7 +42,7 @@ public class SolicitudController {
 	}
 
 	@PostMapping("/registrar")
-	public String guardar(@RequestBody Solicitud solicitud ) {
+	public String guardar(@Valid Solicitud solicitud ) {
 		solicitudService.save(solicitud);
 		return "registrar";
 		

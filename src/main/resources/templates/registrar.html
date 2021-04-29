@@ -43,7 +43,7 @@
                         <h6 class="m-0 font-weight-bold text-primary">Registrar PQRS</h6>
                     </div>
                     <div class="card-body">
-                        <form  method="post" enctype="multipart/form-data">
+                        <form  th:action="@{/solicitud/registrar}" th:object="${solicitud}"  method="post" enctype="multipart/form-data">
                             <div class="form-group">
                                 <h5 class="card-title">Datos del usuario</h5>
                                 <div class="form-row">
@@ -52,7 +52,7 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Identificación *</label>
-                                            <input type="number" class="form-control" name="identificacion" required="true" maxlength="15" max="999999999999999">
+                                            <input th:field="*{solicitud.usuario.identificacion}" type="number" class="form-control" name="identificacion" >
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
@@ -91,9 +91,24 @@
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Motivo de Solicitud *</label>
-                                            <select class="form-control" required name="motivo_solicitud" id="select_motivos_solicitud"></select>
+                                            <select class="form-control" required name="motivo_solicitud" id="select_motivos_solicitud">
+                                            <option value="" disabled>Seleccione ..</option>
+                                                
+                                                <option th:field="*{motivoSolicitud}" value="1">Tramintes administrastivos</option>
+                                                 
+                                                <option th:field="*{motivoSolicitud}" value="2">Solicitud de informacion</option>
+                                                
+                                                <option th:field="*{motivoSolicitud}" value="3">Solicitud de informacion</option>
+                                                
+                                                <option th:field="*{motivoSolicitud}" value="4">Otro</option>
+                                                
+                                              
+                                            
+                                            </select>
                                         </div>
-                                    </div>      
+                                    </div>  
+                                    
+                               <!--         
                                     <div class="col-md-6 d-flex align-items-end">
                                         <div class="input-group mb-3">
                                             <div class="custom-file">
@@ -101,20 +116,22 @@
                                                 <label class="custom-file-label" for="inputGroupFile01">Cargar</label>
                                             </div>
                                         </div>
-                                    </div>                                  
+                                    </div>
+                                    
+                                        -->                              
                                 </div>
                                 <div class="form-row">  
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Descripción *</label>
-                                            <textarea class="form-control" name="descripcion" maxlength="2000" required minlength="10"></textarea>
+                                            <textarea th:field="*{descripcion}" class="form-control" name="descripcion" maxlength="2000" required minlength="10"></textarea>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="col-md-12 d-flex justify-content-center">
-                                        <button class="btn btn-success m-1" type="submit">Enviar</button>
+                                      <input type="submit" th:value="${titulo}" class="btn btn-secondary" />
                                         <a class="btn btn-danger m-1" href="index.jsp">Cancelar</a>
                                     </div>
                                 </div>

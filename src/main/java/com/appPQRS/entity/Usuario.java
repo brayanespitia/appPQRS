@@ -14,11 +14,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.UniqueConstraint;
+
 import javax.validation.constraints.NotEmpty;
 
 import org.hibernate.validator.constraints.UniqueElements;
-import org.springframework.stereotype.Indexed;
+
 
 @Entity
 public class Usuario implements Serializable {
