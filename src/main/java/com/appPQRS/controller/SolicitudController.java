@@ -67,6 +67,7 @@ public class SolicitudController {
 	}
 	
 	
+	
 	@GetMapping("/login")
 	public String login() {
 		return "login";

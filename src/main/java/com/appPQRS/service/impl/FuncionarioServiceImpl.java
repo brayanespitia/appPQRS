@@ -3,11 +3,13 @@ package com.appPQRS.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.appPQRS.dao.FuncionarioDao;
 import com.appPQRS.entity.Funcionario;
 import com.appPQRS.service.FuncionarioService;
 
+@Service
 public class FuncionarioServiceImpl implements FuncionarioService {
 	
 	
