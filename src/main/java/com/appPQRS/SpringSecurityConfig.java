@@ -25,6 +25,22 @@ public BCryptPasswordEncoder passwordEncoder() {
 }
 	
 
+@Override
+protected void configure(HttpSecurity http) throws Exception {
+	// TODO Auto-generated method stub
+	http.authorizeRequests().antMatchers("/","/css/**","/js/**","/bootstrap/**","/registrarUsuario","/solicitud/consultar").permitAll()
+	.antMatchers("/solicitud/registrar").hasAnyRole("ADMIN")
+	.anyRequest().authenticated()
+	.and()
+	.formLogin()
+	 .loginPage("/funcionario/log")
+	.permitAll()
+	.and()
+	.logout().permitAll()
+	;
+}
+
+
 	
 	@Autowired
 	public void configuredGlobal(AuthenticationManagerBuilder builder) throws Exception {
@@ -47,17 +63,7 @@ public BCryptPasswordEncoder passwordEncoder() {
 
 
 
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		// TODO Auto-generated method stub
-		http.authorizeRequests().antMatchers("/","/css/**","js/**").permitAll()
-		.anyRequest().authenticated()
-		.and()
-		.formLogin().permitAll()
-		.and()
-		.logout().permitAll()
-		;
-	}
+
 
 	
 

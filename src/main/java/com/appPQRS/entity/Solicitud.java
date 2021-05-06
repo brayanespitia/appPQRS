@@ -23,7 +23,7 @@ public class Solicitud implements Serializable {
 	private String motivoSolicitud;
 	private String funcionario;
 	
-	private String otroMotivo;
+	private String tipoSolicitud;
 	private String descripcion;
 	private String respuesta;
 	private Boolean respodida;
@@ -85,15 +85,7 @@ public class Solicitud implements Serializable {
 
 
 
-	public String getOtroMotivo() {
-		return otroMotivo;
-	}
 
-
-
-	public void setOtroMotivo(String otroMotivo) {
-		this.otroMotivo = otroMotivo;
-	}
 
 
 
@@ -165,6 +157,14 @@ public class Solicitud implements Serializable {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+
+	public String getTipoSolicitud() {
+		return tipoSolicitud;
+	}
+
+	public void setTipoSolicitud(String tipoSolicitud) {
+		this.tipoSolicitud = tipoSolicitud;
 	}
 	
 	

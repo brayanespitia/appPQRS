@@ -7,12 +7,18 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.appPQRS.dao.SolicitudDao;
+import com.appPQRS.dao.UsuaraioDao;
 import com.appPQRS.entity.Solicitud;
+import com.appPQRS.entity.Usuario;
 import com.appPQRS.service.SolicitudService;
 
 
 @Service
 public class SolicitudServiceImpl implements SolicitudService {
+	
+	
+	@Autowired
+	public UsuaraioDao usuarioDao;
 	
 	@Autowired
 	public SolicitudDao solicitudDao;
@@ -28,6 +34,11 @@ public class SolicitudServiceImpl implements SolicitudService {
 	@Transactional
 	public void save(Solicitud solicitud) {
 		// TODO Auto-generated method stub
+		String cedula= solicitud.getUsuario().getIdentificacion();
+	
+		
+		Usuario usuario = usuarioDao.buscarCedula(cedula);
+		solicitud.setUsuario(usuario);
 		solicitudDao.save(solicitud);
 
 	}

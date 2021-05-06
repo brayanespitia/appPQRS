@@ -16,7 +16,7 @@ public class FuncionarioController {
 	
 	
 	
-	@GetMapping("/login")
+	@GetMapping("/log")
 	public String login(@RequestParam(value = "error", required = false) String error,
 			@RequestParam(value = "logout", required = false) String logout,
 			Model model, Principal principal, RedirectAttributes flash) {
@@ -24,14 +24,14 @@ public class FuncionarioController {
 		
 		if (principal !=null) {
 			flash.addFlashAttribute("info", "ya ha iniciado sesion");
-			return "redirect:/index";
+			return "redirect:/";
 		}
 		if (error != null) {
-			model.addAttribute("error", "Error al iniciar sesion clave o usuario paila");
+			model.addAttribute("warning", "Error al iniciar sesion clave o usuario paila");
 		}
 		if(logout !=null) {
 			
-			model.addAttribute("info", "cerraste sesion con exito");
+			model.addAttribute("success", "cerraste sesion con exito");
 			
 		}
 		return"login";
@@ -41,4 +41,14 @@ public class FuncionarioController {
 	
 	
 
+	
+	
+	
+	
+	@GetMapping("/logearse")
+	public String legeo() {
+		
+		return "main/index";
+	}
+	
 }

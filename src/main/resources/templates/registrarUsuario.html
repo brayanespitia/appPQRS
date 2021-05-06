@@ -1,7 +1,7 @@
 <!doctype html>
 
 
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http:/www.thymeleaf.org/extras/spring-security">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,9 +31,9 @@
 					<a class="nav-link active" th:href="@{/}">Inicio</a> <a
 						class="nav-link" th:href="@{/solicitud/consultar}">Consultar</a> <a
 						class="nav-link" th:href="@{/solicitud/registrar}">Registrar
-						PQRS</a> <a class="nav-link" th:href="@{/usuario/registrarUsuario}">Registrar
-						Usuario</a> <a class="nav-link" th:href="@{/solicitud/login}">Iniciar
-						sesión</a>
+						PQRS</a>
+						<a class="nav-link" th:href="@{/registrarUsuario}">Registrar Usuario</a>
+						<a class="nav-link" th:href="@{/funcionario/log}">Iniciarsesión</a>
 				</nav>
 			</div>
 				
@@ -64,30 +64,30 @@
 							<div class="form-row">
 								<div class="col-lg-2">
 									<div class="form-group">
-										<label>Tipo de Usuario *</label> <select class="form-control"
+										<label>Tipo de Usuario *</label> <select th:field="*{tipoUsuario}" class="form-control"
 											name="tipo_usuario">
 											<option value="" disabled>Seleccione ..</option>
 
-											<option value="2">EGRESADO</option>
+											<option value="egresado">EGRESADO</option>
 
-											<option value="3">PERSONA NATURAL</option>
+											<option value="persona natural">PERSONA NATURAL</option>
 
 										</select>
 									</div>
 								</div>
 								<div class="col-lg-2">
 									<div class="form-group">
-										<label>Tipo de Documento *</label> <select
+										<label >Tipo de Documento *</label> <select th:field="*{tipoIdentificacion}"
 											class="form-control" name="tipo_identificacion">
 											<option value="" disabled>Seleccione ..</option>
 
-											<option value="4">Pasaporte</option>
+											<option value="pasaporte">Pasaporte</option>
 
-											<option value="3">Cédula de Extranjeria</option>
+											<option  value="cedula de extanjeria">Cédula de Extranjeria</option>
 
-											<option value="2">Tarjeta de Identidad</option>
+											<option   value="tarjeta de identidad">Tarjeta de Identidad</option>
 
-											<option value="1">Cédula de Ciudadania</option>
+											<option value="cedula de ciudadania">Cédula de Ciudadania</option>
 
 										</select>
 									</div>

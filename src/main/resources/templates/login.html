@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http:/www.thymeleaf.org/extras/spring-security">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,20 +29,23 @@
 				<nav class="nav nav-masthead justify-content-center">
 					<a class="nav-link active" th:href="@{/}">Inicio</a> <a
 						class="nav-link" th:href="@{/solicitud/consultar}">Consultar</a> <a
-						class="nav-link" th:href="@{/solicitud/registrar}">Registrar</a>
+						class="nav-link" th:href="@{/solicitud/registrar}">Registrar PQRS</a>
 						
 						  <a class="nav-link" th:href="@{/registrarUsuario}">Registrar Usuario</a>
-						 <a
-						class="nav-link" th:href="@{/solicitud/login}">Iniciar sesión</a>
+					<a class="nav-link" th:href="@{/funcionario/log}">Iniciarsesión</a>
 				</nav>
 			</div>
 		</header>
+		
+		
+		<div class="alert alert-warning" th:if="${warning != null}" th:text="${warning}"></div>
+					<div class="alert alert-success" th:if="${success != null}" th:text="${success}" role="alert"></div>
 
 		<main role="main" class="">
 			<div
 				class="d-block container w-50 bg-white p-5 border border-primary rounded">
 				<h3 class="title">Panel Administrativo</h3>
-				<form action="login" method="POST">
+				<form  th:action="@{funcionario/log}" method="POST">
 					<div class="form-group">
 						<label>Nombre de usuario</label> <input type="text"
 							class="form-control" name="username" required autofocus>
@@ -52,7 +55,12 @@
 							class="form-control" name="password" required>
 					</div>
 					<div class="form-group">
-						<button class="btn btn-success" type="submit">Iniciar</button>
+					
+					<input type="submit"  class="btn btn-success" >
+					
+				
+					
+						
 					</div>
 				</form>
 			</div>

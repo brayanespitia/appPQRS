@@ -22,6 +22,7 @@ import com.appPQRS.entity.Solicitud;
 import com.appPQRS.entity.Usuario;
 import com.appPQRS.service.UsuarioService;
 
+
 @Controller
 public class UsuarioController {
 
@@ -64,5 +65,7 @@ public class UsuarioController {
 		flash.addFlashAttribute("success","El usuario se ha registrado con Exito!!");
 		return "redirect:/registrarUsuario";
 	}
+	
+
 
 }
