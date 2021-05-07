@@ -28,12 +28,13 @@ public BCryptPasswordEncoder passwordEncoder() {
 @Override
 protected void configure(HttpSecurity http) throws Exception {
 	// TODO Auto-generated method stub
-	http.authorizeRequests().antMatchers("/","/css/**","/js/**","/bootstrap/**","/registrarUsuario","/solicitud/consultar","/funcionario/logeo").permitAll()
+	http.authorizeRequests().antMatchers("/","/css/**","/js/**","/bootstrap/**","/registrarUsuario","/solicitud/consultar","/funcionario/loge").permitAll()
 	.antMatchers("/solicitud/registrar").hasAnyRole("ADMIN")
 	
 	.anyRequest().authenticated()
 	.and()
 	.formLogin()
+	.defaultSuccessUrl("/funcionario/loge")
 	 .loginPage("/funcionario/log")
 	.permitAll()
 	.and()

@@ -27,12 +27,9 @@ public class FuncionarioController {
 		
 		if (principal !=null) {
 			flash.addFlashAttribute("info", "ya ha iniciado sesion");
-			return "redirect:/" ;
+			return "redirect:/funcionario/loge" ;
 	
 		}
-		
-		
-	
 		
 		
 		if (error != null) {
@@ -50,12 +47,9 @@ public class FuncionarioController {
 		
 		return"login";
 	}
-	
-	
 		
 	
-	
-	@PostMapping("/log")
+	@GetMapping("/home")
 	public String logeo(BindingResult result, Model model) {
 		
 		
@@ -72,10 +66,44 @@ public class FuncionarioController {
 	
 	
 	
-	@PostMapping("/loge")
+	@GetMapping("/loge")
 	public String logear( Principal principal) {
 		
 		return "main/index";
+	}
+	
+	@GetMapping("/pqrs")
+	public String pqrs( Principal principal) {
+		
+		return "main/pqrs";
+	}
+	
+	
+	
+	@GetMapping("/listar")
+	public String listar( Principal principal) {
+		
+		return "main/funcionarios";
+	}
+	
+
+	@GetMapping("/tipoSolicitud")
+	public String tipoSolicitud( Principal principal) {
+		
+		return "main/tipos_solicitudes";
+	}
+	
+
+	@GetMapping("/tipoUsuario")
+	public String tipoUsuario( Principal principal) {
+		
+		return "main/tipos_usuarios";
+	}
+	
+	@GetMapping("/reporte")
+	public String reporte( Principal principal) {
+		
+		return "main/general_reporte";
 	}
 	
 }
