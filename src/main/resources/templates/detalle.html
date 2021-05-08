@@ -50,19 +50,19 @@
                                 <div class="col-lg-3">
                                     <div class="form-group">
                                         <label>Tipo de Usuario</label>
-                                        <input type="text" value="" class="form-control" disabled="true" readonly="true">
+                                        <div  th:text="${usuario.tipoUsuario}" class="form-control" disabled="true" readonly="true"></div>
                                     </div>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="form-group">
                                         <label>Tipo de Identificación</label>
-                                        <input type="text" value="" class="form-control" disabled="true" readonly="true">
+                                         <div  th:text="${usuario.tipoIdentificacion}" class="form-control" disabled="true" readonly="true"></div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label>Identificación</label>
-                                        <input type="text" value="" class="form-control" disabled="true" readonly="true">
+                                       <div  th:text="${usuario.identificacion}" class="form-control" disabled="true" readonly="true"></div>
                                     </div>
                                 </div>
                             </div>
@@ -70,25 +70,25 @@
                                 <div class="col-lg-3">
                                     <div class="form-group">
                                         <label>Primer Nombre</label>
-                                        <input type="text" value="" class="form-control" disabled="true" readonly="true">
+                                        <div  th:text="${usuario.primerNombre}" class="form-control" disabled="true" readonly="true"></div>
                                     </div>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="form-group">
                                         <label>Segundo Nombre</label>
-                                        <input type="text" value="" class="form-control" disabled="true" readonly="true">
+                                        <div  th:text="${usuario.segundoNombre}" class="form-control" disabled="true" readonly="true"></div>
                                     </div>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="form-group">
                                         <label>Primer Apellido</label>
-                                        <input type="text" value="" class="form-control" disabled="true" readonly="true">
+                                         <div  th:text="${usuario.primerApellido}" class="form-control" disabled="true" readonly="true"></div>
                                     </div>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="form-group">
                                         <label>Segundo Apellido</label>
-                                        <input type="text" value="" class="form-control" disabled="true" readonly="true">
+                                        <div  th:text="${usuario.segundoApellido}" class="form-control" disabled="true" readonly="true"></div>
                                     </div>
                                 </div>
                             </div>
@@ -96,19 +96,19 @@
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label>Celular</label>
-                                        <input type="text" value="" class="form-control" disabled="true" readonly="true">
+                                      <div  th:text="${usuario.direccion}" class="form-control" disabled="true" readonly="true"></div>
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label>Correo</label>
-                                        <input type="text" value="" class="form-control" disabled="true" readonly="true">
+                                       <div  th:text="${usuario.direccion}" class="form-control" disabled="true" readonly="true"></div>
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label>Dirección</label>
-                                        <input type="text" value="" class="form-control" disabled="true" readonly="true">
+                                       <div  th:text="${usuario.direccion}" class="form-control" disabled="true" readonly="true"></div>
                                     </div>
                                 </div>
                             </div>
@@ -118,19 +118,19 @@
                                 <div class="col-lg-3">
                                     <div class="form-group">
                                         <label>Asignada a</label>
-                                        <input type="text" value="" class="form-control" disabled="true" readonly="true">
+                                        <input type="text"  class="form-control" disabled="true" readonly="true">
                                     </div>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="form-group">
                                         <label>Tipo de Solicitud</label>
-                                        <input type="text" value="" class="form-control" disabled="true" readonly="true">
+                                        <div  th:text="${solicitud.tipoSolicitud}" class="form-control" disabled="true" readonly="true"></div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label>Motivo</label>
-                                        <input type="text" value="" class="form-control" disabled="true" readonly="true">
+                                        <div th:text="${solicitud.motivoSolicitud}" class="form-control" disabled="true" readonly="true" >  </div>
                                     </div>
                                 </div>
                             </div>

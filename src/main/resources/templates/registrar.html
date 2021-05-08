@@ -54,7 +54,7 @@
 					<h6 class="m-0 font-weight-bold text-primary">Registrar PQRS</h6>
 				</div>
 				<div class="card-body">
-					<form th:action="@{/solicitud/registrar}" th:object="${solicitud}"
+					<form th:action="@{/solicitud/registrar}" th:object="${solicitud}" 
 						method="post" enctype="multipart/form-data">
 						<div class="form-group">
 							<h5 class="card-title">Datos del usuario</h5>
@@ -64,8 +64,8 @@
 								<div class="col-lg-6">
 									<div class="form-group">
 										<label>Identificación *</label> <input
-											th:field="*{usuario.identificacion}" type="number"
-											class="form-control" name="identificacion">
+											 type="text"
+											class="form-control" name="identificacion" required="required">
 									</div>
 								</div>
 								<div class="col-lg-6">
@@ -79,7 +79,7 @@
 
 
 						</div>
-
+ <input th:name="prueba" type="text">  </input>
 						<div class="form-group">
 							<h5 class="card-title">Datos de la PQRS</h5>
 							<div class="form-row">
@@ -121,7 +121,7 @@
 
 											<option value="otro">Otro</option>
 
-
+ 
 
 										</select>
 									</div>

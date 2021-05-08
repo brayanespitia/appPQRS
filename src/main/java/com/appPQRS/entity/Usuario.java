@@ -48,7 +48,7 @@ public class Usuario implements Serializable {
 
 	private String segundoNombre;
 
-	@NotEmpty
+	
 	private String primerApellido;
 
 	private String segundoApellido;

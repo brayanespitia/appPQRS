@@ -28,7 +28,7 @@ public BCryptPasswordEncoder passwordEncoder() {
 @Override
 protected void configure(HttpSecurity http) throws Exception {
 	// TODO Auto-generated method stub
-	http.authorizeRequests().antMatchers("/","/css/**","/js/**","/bootstrap/**","/registrarUsuario","/solicitud/consultar","/funcionario/loge", "/solicitud/**").permitAll()
+	http.authorizeRequests().antMatchers("/","/css/**","/js/**","/bootstrap/**","/registrarUsuario","/solicitud/consultar","/funcionario/loge", "/solicitud/**", "/solicitud/detalle/**").permitAll()
 		
 	.anyRequest().authenticated()
 	.and()

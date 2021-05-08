@@ -43,7 +43,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 	@Override
 	public Usuario buscarCedula(String identificacion) {
 		// TODO Auto-generated method stub
-	 return	usuarioDao.buscarCedula(identificacion);
+	 return	usuarioDao.findByIdentificacion(identificacion);
 		
 		
 	}

@@ -10,7 +10,7 @@ import com.appPQRS.entity.Usuario;
 @Repository
 public interface UsuaraioDao extends CrudRepository<Usuario, Long> {
 	
-@Query("SELECT u FROM Usuario u WHERE u.identificacion =?1")
-public Usuario buscarCedula(String identificacion);
+//@Query("SELECT u FROM Usuario u WHERE u.identificacion =?1")
+public Usuario findByIdentificacion(String identificacion);
 
 }

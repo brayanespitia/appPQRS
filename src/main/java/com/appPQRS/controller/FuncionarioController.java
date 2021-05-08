@@ -22,7 +22,7 @@ public class FuncionarioController {
 	public String login(@RequestParam(value = "error", required = false) String error,
 			@RequestParam(value = "logout", required = false) String logout,
 			Model model, Principal principal, RedirectAttributes flash) {
-		System.out.println("hola papu");
+	
 
 		
 		if (principal !=null) {
@@ -43,7 +43,7 @@ public class FuncionarioController {
 		
 	
 		
-		System.out.println("hola papu 2");
+	
 		
 		return"login";
 	}
@@ -55,11 +55,11 @@ public class FuncionarioController {
 		
 		if (result.hasErrors()) {
 			model.addAttribute("titulo", "Formulario de Cliente");
-			System.out.println("hola papu 4");
+		
 			return "/";
 		}
 		
-		System.out.println("hola papu 3");
+		
 		return "main/index";
 	}
 	

@@ -40,13 +40,15 @@ public class UsuarioController {
 
 	@RequestMapping(value = "/registrarUsuario", method = RequestMethod.POST)
 	public String guardar(@Valid Usuario usuario, BindingResult result, Model model, RedirectAttributes flash) {
-		System.out.println("hola papu 2");
+	
 
 		Usuario user = usuarioService.buscarCedula(usuario.getIdentificacion());
 
 		if (user != null) {
 			
-			flash.addFlashAttribute("warning","La informacion del usuaraio ya se encuntra registrada");
+			
+			
+			flash.addFlashAttribute("warning","este  usuaraio ya se encuentra registrado en la BD");
 			
 			return "redirect:/registrarUsuario";
 		}
@@ -55,12 +57,12 @@ public class UsuarioController {
 
 			model.addAttribute("titulo", "formulario usuario");
 
-			System.out.println("hola papu");
+		
 			return "index";
 
 		}
 
-		System.out.println("hola papu 3");
+	
 		usuarioService.save(usuario);
 		flash.addFlashAttribute("success","El usuario se ha registrado con Exito!!");
 		return "redirect:/registrarUsuario";
