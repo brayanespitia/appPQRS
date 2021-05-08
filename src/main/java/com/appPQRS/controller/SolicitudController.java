@@ -51,7 +51,7 @@ public class SolicitudController {
 	public String guardar(@Valid Solicitud solicitud,Usuario usuario, RedirectAttributes flash ) {
 		
 		Usuario user = usuarioService.buscarCedula(usuario.getIdentificacion());
-		if(usuario !=null){
+		if(user !=null){
 			
 			flash.addFlashAttribute("danger","La identificacion del usuario no existe en la base de datos");
 			
@@ -89,7 +89,11 @@ public class SolicitudController {
 	}
 	
 	
-	
+	@GetMapping("/detalle")
+	public String detalle() {
+		
+		return "detalle";
+	}
 
 	
 
