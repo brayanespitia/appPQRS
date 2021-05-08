@@ -27,10 +27,12 @@
                 <div class="inner">
                     <h3 class="masthead-brand">PQRS - UFPS</h3>
                     <nav class="nav nav-masthead justify-content-center">
-                        <a class="nav-link" href="index.jsp">Inicio</a>
-                        <a class="nav-link active" href="consultar.jsp">Consultar</a>
-                        <a class="nav-link" href="registrar.jsp">Registrar</a>
-                        <a class="nav-link" href="login.jsp">Iniciar sesión</a>
+                    <a class="nav-link active" th:href="@{/}">Inicio</a>
+                        <a class="nav-link" th:href="@{/solicitud/consultar}">Consultar</a>
+                        <a class="nav-link" th:href="@{/solicitud/registrar}">Registrar PQRS</a>
+                         <a class="nav-link" th:href="@{/registrarUsuario}">Registrar Usuario</a>
+
+                        <a class="nav-link" th:href="@{/funcionario/log}">Iniciarsesión</a>
                     </nav>
                 </div>
             </header>
@@ -48,19 +50,19 @@
                                 <div class="col-lg-3">
                                     <div class="form-group">
                                         <label>Tipo de Usuario</label>
-                                        <input type="text" value="EGRESADO" class="form-control" disabled="true" readonly="true">
+                                        <input type="text" value="" class="form-control" disabled="true" readonly="true">
                                     </div>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="form-group">
                                         <label>Tipo de Identificación</label>
-                                        <input type="text" value="Tarjeta de Identidad" class="form-control" disabled="true" readonly="true">
+                                        <input type="text" value="" class="form-control" disabled="true" readonly="true">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label>Identificación</label>
-                                        <input type="text" value="999999" class="form-control" disabled="true" readonly="true">
+                                        <input type="text" value="" class="form-control" disabled="true" readonly="true">
                                     </div>
                                 </div>
                             </div>
@@ -68,25 +70,25 @@
                                 <div class="col-lg-3">
                                     <div class="form-group">
                                         <label>Primer Nombre</label>
-                                        <input type="text" value="brayan" class="form-control" disabled="true" readonly="true">
+                                        <input type="text" value="" class="form-control" disabled="true" readonly="true">
                                     </div>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="form-group">
                                         <label>Segundo Nombre</label>
-                                        <input type="text" value="david" class="form-control" disabled="true" readonly="true">
+                                        <input type="text" value="" class="form-control" disabled="true" readonly="true">
                                     </div>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="form-group">
                                         <label>Primer Apellido</label>
-                                        <input type="text" value="espitia" class="form-control" disabled="true" readonly="true">
+                                        <input type="text" value="" class="form-control" disabled="true" readonly="true">
                                     </div>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="form-group">
                                         <label>Segundo Apellido</label>
-                                        <input type="text" value="orjuela" class="form-control" disabled="true" readonly="true">
+                                        <input type="text" value="" class="form-control" disabled="true" readonly="true">
                                     </div>
                                 </div>
                             </div>
@@ -94,19 +96,19 @@
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label>Celular</label>
-                                        <input type="text" value="3144300588" class="form-control" disabled="true" readonly="true">
+                                        <input type="text" value="" class="form-control" disabled="true" readonly="true">
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label>Correo</label>
-                                        <input type="text" value="brayanespitia2013@gmail.com" class="form-control" disabled="true" readonly="true">
+                                        <input type="text" value="" class="form-control" disabled="true" readonly="true">
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label>Dirección</label>
-                                        <input type="text" value="Cll6bn #3e-48 ceiba 2" class="form-control" disabled="true" readonly="true">
+                                        <input type="text" value="" class="form-control" disabled="true" readonly="true">
                                     </div>
                                 </div>
                             </div>
@@ -116,19 +118,19 @@
                                 <div class="col-lg-3">
                                     <div class="form-group">
                                         <label>Asignada a</label>
-                                        <input type="text" value="JULIO MARIO TORRES" class="form-control" disabled="true" readonly="true">
+                                        <input type="text" value="" class="form-control" disabled="true" readonly="true">
                                     </div>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="form-group">
                                         <label>Tipo de Solicitud</label>
-                                        <input type="text" value="SUGERENCIA" class="form-control" disabled="true" readonly="true">
+                                        <input type="text" value="" class="form-control" disabled="true" readonly="true">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label>Motivo</label>
-                                        <input type="text" value="Oportunidad en el Servicio." class="form-control" disabled="true" readonly="true">
+                                        <input type="text" value="" class="form-control" disabled="true" readonly="true">
                                     </div>
                                 </div>
                             </div>
@@ -138,7 +140,7 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label>Solicitud</label>
-                                        <div class="container-html"><p>prueba de consulta para el aplicativo</p></div>
+                                        <div class="container-html" th:text="${solicitud.descripcion}" ><p>o</p></div>
                                     </div>
                                 </div>
                             </div>                

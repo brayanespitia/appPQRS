@@ -89,8 +89,18 @@ public class SolicitudController {
 	}
 	
 	
-	@GetMapping("/detalle")
-	public String detalle() {
+	@GetMapping("/detalle/{id}")
+	public String detalle(@PathVariable (value = "id")Long id, Map<String, Object> model, RedirectAttributes flash) {
+		
+		Solicitud solicitud = solicitudService.findOne(id);
+		
+		if(solicitud == null) {
+			
+			flash.addFlashAttribute("warning","no hay facturas");
+			return "redirect/";
+		}
+		
+		model.put("solicitud", solicitud);
 		
 		return "detalle";
 	}
