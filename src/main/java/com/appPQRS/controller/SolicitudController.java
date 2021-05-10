@@ -87,7 +87,7 @@ public class SolicitudController {
 			solicitudService.save(solicitud);
 			
 			
-			flash.addFlashAttribute("success", "La PQRS se ha registrado Exitosamente");
+			flash.addFlashAttribute("success", "La PQRS se ha registrado Exitosamente su numero de radicado es :  " + solicitud.getId());
 			 return "redirect:/solicitud/registrar";
 	
 		
@@ -118,16 +118,22 @@ public class SolicitudController {
 	@GetMapping("/detalle/{id}")
 	public String detalle(@PathVariable(value = "id") Long id, Map<String, Object> model, RedirectAttributes flash ) {
 
+		
+		
+		
 		Solicitud solicitud = solicitudService.findOne(id);
 
+		
+		if (solicitud == null) {
+
+			flash.addFlashAttribute("warning", "no PQRS CON ESA id");
+			return "redirect:/solicitud/consultar";
+		}
+		
 		Usuario usuario = solicitudService.findUsuarioBySolicitud(solicitud.getUsuario().getId());
 
-	/*	if (solicitud == null) {
+	
 
-			flash.addFlashAttribute("warning", "no hay facturas");
-			return "redirect/";
-		}
-*/
 		
 		
 
@@ -139,7 +145,7 @@ public class SolicitudController {
 	}
 	
 	@PostMapping("/detalle")
-	public String ruta (@RequestParam(value = "solicitudId") Long solicitudId, Model model) {
+	public String ruta (@RequestParam(value = "solicitudId") @PathVariable(value = "id") Long solicitudId,Long id, Model model, RedirectAttributes flash) {
 		System.out.println("hola" + solicitudId);
 
 		
