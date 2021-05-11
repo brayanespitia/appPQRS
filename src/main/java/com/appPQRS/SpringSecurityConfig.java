@@ -1,5 +1,7 @@
 package com.appPQRS;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,8 +11,12 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.User.UserBuilder;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+
+import com.appPQRS.service.JpaUserDatailService;
+import com.appPQRS.service.impl.FuncionarioServiceImpl;
 
 
 
@@ -18,23 +24,38 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 public class SpringSecurityConfig  extends WebSecurityConfigurerAdapter {
 
-@Bean
-public BCryptPasswordEncoder passwordEncoder() {
+
+
+@Autowired
+private JpaUserDatailService userDetailService;
+
+
+
+@Autowired
+private BCryptPasswordEncoder passwordEncoder;
+
+@Autowired
+public void configuredGlobal(AuthenticationManagerBuilder build) throws Exception {
 	
-	return new BCryptPasswordEncoder();
+     
+	build.userDetailsService(userDetailService)
+	.passwordEncoder(passwordEncoder)
+	
+	;
+
 }
-	
+
 
 @Override
 protected void configure(HttpSecurity http) throws Exception {
 	// TODO Auto-generated method stub
-	http.authorizeRequests().antMatchers("/","/css/**","/js/**","/bootstrap/**","/registrarUsuario","/solicitud/consultar","/funcionario/loge", "/solicitud/**", "/solicitud/detalle/**").permitAll()
+	http.authorizeRequests().antMatchers("/","/css/**","/js/**","/bootstrap/**","/registrarUsuario","/solicitud/consultar","/funcionario/loge", "/solicitud/**", "/solicitud/detalle/**", "/funcionario/**", "/login").permitAll()
 		
 	.anyRequest().authenticated()
 	.and()
 	.formLogin()
 	.defaultSuccessUrl("/funcionario/loge")
-	 .loginPage("/funcionario/log")
+	 .loginPage("/login")
 	.permitAll()
 	.and()
 	.logout().permitAll()
@@ -43,24 +64,7 @@ protected void configure(HttpSecurity http) throws Exception {
 
 
 	
-	@Autowired
-	public void configuredGlobal(AuthenticationManagerBuilder builder) throws Exception {
-		
-         
-		
-		PasswordEncoder encoder = passwordEncoder();
-		UserBuilder users = User.builder().passwordEncoder(encoder :: encode);
-		builder.inMemoryAuthentication()
-		.withUser(users.username("admin").password("12345").roles("ADMIN", "USER"))
-		.withUser(users.username("brayan").password("12345").roles("USER"))
-		
-		;
 
-	
-		
-		
-	
-	}
 
 
 

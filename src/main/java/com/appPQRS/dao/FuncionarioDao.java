@@ -9,6 +9,6 @@ import com.appPQRS.entity.Funcionario;
 @Repository
 public interface FuncionarioDao  extends CrudRepository<Funcionario, Long>{
 	
-//	public Funcionario findByUsername(String identificacion);
+	public Funcionario findByidentificacion(String identificacion);
 
 }

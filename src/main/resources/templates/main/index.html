@@ -3,7 +3,7 @@
 
 
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http:/www.thymeleaf.org/extras/spring-security">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -74,7 +74,7 @@
 				th:href="@{/funcionario/tipoSolicitud}"> <i class="fas fa-list"></i>
 					<span>Tipos de Solicitudes</span></a></li>
 
-			<li class="nav-item active"><a class="nav-link"
+			<li class="nav-item active"><a  class="nav-link"
 				th:href="@{/funcionario/tipoUsuario}"> <i class="fas fa-users"></i> <span>Tipos
 						de Usuarios</span></a></li>
 

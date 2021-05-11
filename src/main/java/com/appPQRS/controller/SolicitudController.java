@@ -147,7 +147,7 @@ public class SolicitudController {
 	@PostMapping("/detalle")
 	public String ruta (@RequestParam(value = "solicitudId") @PathVariable(value = "id") Long solicitudId,Long id, Model model, RedirectAttributes flash) {
 		System.out.println("hola" + solicitudId);
-
+			
 		
 		return "redirect:/solicitud/detalle/" + solicitudId;
 	}

@@ -32,7 +32,7 @@
 						class="nav-link" th:href="@{/solicitud/registrar}">Registrar PQRS</a>
 						
 						  <a class="nav-link" th:href="@{/registrarUsuario}">Registrar Usuario</a>
-					<a class="nav-link" th:href="@{/funcionario/log}">Iniciarsesión</a>
+					<a class="nav-link" th:href="@{login}">Iniciarsesión</a>
 				</nav>
 			</div>
 		</header>
@@ -46,23 +46,23 @@
 				class="d-block container w-50 bg-white p-5 border border-primary rounded">
 				<h3 class="title">Panel Administrativo</h3>
 				
-				
-				<form  th:action="@{/funcionario/log}" method="POST">
-					<div class="form-group">
-						<label>Nombre de usuario</label> <input type="text"
-							class="form-control" name="username" required autofocus>
+			<form th:action="@{/login}" method="post">
+
+					<div class="form-group col-sm-4">
+						<input type="text" name="username" id="username"
+							class="form-control" placeholder="username" autofocus="autofocus"
+							required>
 					</div>
-					<div class="form-group">
-						<label>Contraseña</label> <input type="password"
-							class="form-control" name="password" required>
+					<div class="form-group col-sm-4">
+						<input type="password" name="password" id="password"
+							class="form-control" placeholder="password" required>
 					</div>
-					<div class="form-group">
-					
-					<input type="submit"  class="btn btn-success" >
-					
-								
-						
+					<div class="form-group col-sm-4">
+						<input type="submit" class="btn btn-lg btn-primary btn-block"
+							value="Sing In">
 					</div>
+
+<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
 				</form>
 				
 				
