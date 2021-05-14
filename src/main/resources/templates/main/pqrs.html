@@ -48,7 +48,7 @@
 			<hr class="sidebar-divider">
 
 			<li class="nav-item active"><a class="nav-link"
-				th:href="@{/funcionario/pqrs}"> <i class="fas fa-fw fa-tachometer-alt"></i>
+				th:href="@{/solicitud/listarPQRS}"> <i class="fas fa-fw fa-tachometer-alt"></i>
 					<span>PQRS</span></a></li>
 
 
@@ -213,325 +213,28 @@
                                         </thead>
                                         <tbody>
                                             
-                                            <tr class="">
-                                                <td>
+                                            <tr class="" th:each="solicitud: ${solicitudes}" >
+                                                <td   >
                                                     <div class="d-flex justify-content-center align-content-center">
-                                                        <a title="Detalle" class="btn btn-sm btn-outline-info m-1" href="detalle_pqrs.jsp?id=4"  ><i class="fas fa-info-circle"></i></a>
+                                                        <a title="Detalle" class="btn btn-sm btn-outline-info m-1"  th:href="@{/solicitud/detallito/}+ ${solicitud.id}" ><i class="fas fa-info-circle"></i></a>
                                                     </div>
                                                 </td>
-                                                <td>4</td>
-                                                <td>CC 120045124</td>
-                                                <td>MARIO PAULA MORALES </td>
-                                                <td>PETICIÓN</td>
-                                                <td>Trámites administrativos</td>
-                                                <td><div class="container-html container-html-td"><p>Lorem&nbsp;ipsum&nbsp;dolor&nbsp;sit&nbsp;amet&nbsp;consectetur&nbsp;adipisicing&nbsp;elit.&nbsp;Tenetur&nbsp;quibusdam&nbsp;blanditiis&nbsp;repellendus&nbsp;similique&nbsp;delectus&nbsp;ex&nbsp;asperiores&nbsp;molestias&nbsp;placeat&nbsp;cupiditate&nbsp;est&nbsp;deleniti&nbsp;eaque&nbsp;veniam&nbsp;neque,&nbsp;quisquam&nbsp;nam,&nbsp;quod&nbsp;ad&nbsp;unde&nbsp;officiis&nbsp;explicabo&nbsp;impedit&nbsp;rerum&nbsp;dolores?&nbsp;Earum&nbsp;optio&nbsp;nulla&nbsp;ipsam&nbsp;fugiat&nbsp;natus&nbsp;ea&nbsp;illo&nbsp;sed&nbsp;incidunt&nbsp;deserunt&nbsp;quos&nbsp;blanditiis&nbsp;aut&nbsp;inventore&nbsp;sunt&nbsp;quasi&nbsp;labore&nbsp;nam&nbsp;debitis</p></div></td>
-                                                <td>
-                                                    
-                                                </td>
-                                                <td>2020-12-03 22:12:45</td>
+                                                <td th:text="${solicitud.id}" ></td>
+                                                <td th:text="${solicitud.usuario.identificacion}" ></td>
+                                                <td th:text="${solicitud.usuario.primerNombre}"> </td>
+                                                <td th:text="${solicitud.tipoSolicitud}"></td>
+                                                <td th:text="${solicitud.motivoSolicitud}"></td>
+                                                <td th:text="${solicitud.descripcion}" ></td>
+                                                <td th:text="${solicitud.respuesta}">    </td>                                          
+                                                
+                                                <td th:text="${solicitud.fechaRegistro}" ></td>
                                                 <td></td>
                                                 
                                                 <td>PEDRO ANTONIO MOLINA</td>
                                                 
                                             </tr>
                                             
-                                            <tr class="">
-                                                <td>
-                                                    <div class="d-flex justify-content-center align-content-center">
-                                                        <a title="Detalle" class="btn btn-sm btn-outline-info m-1" href="detalle_pqrs.jsp?id=5"  ><i class="fas fa-info-circle"></i></a>
-                                                    </div>
-                                                </td>
-                                                <td>5</td>
-                                                <td>CC 24514232</td>
-                                                <td>LORENA  GALVIZ </td>
-                                                <td>RECLAMO</td>
-                                                <td>Trato y Atención al Usuario</td>
-                                                <td><div class="container-html container-html-td"><p>Lus&nbsp;aut,&nbsp;aliquid&nbsp;dolores&nbsp;quas&nbsp;quibusdam&nbsp;provident&nbsp;cum&nbsp;animi&nbsp;natus.&nbsp;Exercitationem&nbsp;in&nbsp;ipsam&nbsp;ipsa&nbsp;tenetur&nbsp;sunt&nbsp;nihil&nbsp;repudiandae&nbsp;tempore&nbsp;deleniti&nbsp;quisquam&nbsp;obcaecati,&nbsp;iure&nbsp;impedit,&nbsp;id&nbsp;veritatis&nbsp;sapiente&nbsp;aliquam&nbsp;illo&nbsp;porro&nbsp;est&nbsp;facilis&nbsp;ducimus?&nbsp;Voluptatum,&nbsp;praesentium&nbsp;ea?&nbsp;Ullam&nbsp;laborum&nbsp;aut&nbsp;eos&nbsp;tempore&nbsp;non&nbsp;iure&nbsp;ipsam&nbsp;ut&nbsp;fugiat,&nbsp;fugit,&nbsp;minima&nbsp;et&nbsp;consectetur&nbsp;ipsum&nbsp;accusamus&nbsp;beatae&nbsp;minus&nbsp;perferendis&nbsp;aspernatur,&nbsp;vero&nbsp;odio&nbsp;in&nbsp;deleniti&nbsp;culpa&nbsp;ipsa&nbsp;qui&nbsp;dolorum&nbsp;sunt.&nbsp;Quod&nbsp;aspernatur&nbsp;facere,&nbsp;quidem&nbsp;maiores&nbsp;facilis&nbsp;ad&nbsp;dolores!</p></div></td>
-                                                <td>
-                                                    
-                                                </td>
-                                                <td>2020-12-03 22:14:08</td>
-                                                <td></td>
-                                                
-                                                <td>JULIO MARIO TORRES</td>
-                                                
-                                            </tr>
-                                            
-                                            <tr class="">
-                                                <td>
-                                                    <div class="d-flex justify-content-center align-content-center">
-                                                        <a title="Detalle" class="btn btn-sm btn-outline-info m-1" href="detalle_pqrs.jsp?id=8"  ><i class="fas fa-info-circle"></i></a>
-                                                    </div>
-                                                </td>
-                                                <td>8</td>
-                                                <td>CC 1524222</td>
-                                                <td>JUAN  MORA </td>
-                                                <td>PETICIÓN</td>
-                                                <td>Trámites administrativos</td>
-                                                <td><div class="container-html container-html-td"><p>Hola, solicito ayuda, gracias</p></div></td>
-                                                <td>
-                                                    
-                                                </td>
-                                                <td>2020-12-15 22:38:12</td>
-                                                <td></td>
-                                                
-                                                <td>JULIO MARIO TORRES</td>
-                                                
-                                            </tr>
-                                            
-                                            <tr class="">
-                                                <td>
-                                                    <div class="d-flex justify-content-center align-content-center">
-                                                        <a title="Detalle" class="btn btn-sm btn-outline-info m-1" href="detalle_pqrs.jsp?id=9"  ><i class="fas fa-info-circle"></i></a>
-                                                    </div>
-                                                </td>
-                                                <td>9</td>
-                                                <td>CC 1524222</td>
-                                                <td>JUAN  MORA </td>
-                                                <td>PETICIÓN</td>
-                                                <td>Trámites administrativos</td>
-                                                <td><div class="container-html container-html-td"><p>Hola, solicito ayuda, gracias</p></div></td>
-                                                <td>
-                                                    
-                                                </td>
-                                                <td>2020-12-15 22:38:47</td>
-                                                <td></td>
-                                                
-                                                <td>JULIO MARIO TORRES</td>
-                                                
-                                            </tr>
-                                            
-                                            <tr class="">
-                                                <td>
-                                                    <div class="d-flex justify-content-center align-content-center">
-                                                        <a title="Detalle" class="btn btn-sm btn-outline-info m-1" href="detalle_pqrs.jsp?id=10"  ><i class="fas fa-info-circle"></i></a>
-                                                    </div>
-                                                </td>
-                                                <td>10</td>
-                                                <td>CC 55555</td>
-                                                <td>JUAN  MORA </td>
-                                                <td>PETICIÓN</td>
-                                                <td>Trámites administrativos</td>
-                                                <td><div class="container-html container-html-td"><p>Juan</p></div></td>
-                                                <td>
-                                                    
-                                                </td>
-                                                <td>2020-12-15 22:39:56</td>
-                                                <td></td>
-                                                
-                                                <td>JULIO MARIO TORRES</td>
-                                                
-                                            </tr>
-                                            
-                                            <tr class="">
-                                                <td>
-                                                    <div class="d-flex justify-content-center align-content-center">
-                                                        <a title="Detalle" class="btn btn-sm btn-outline-info m-1" href="detalle_pqrs.jsp?id=11"  ><i class="fas fa-info-circle"></i></a>
-                                                    </div>
-                                                </td>
-                                                <td>11</td>
-                                                <td>PA 12344</td>
-                                                <td>juan  mora </td>
-                                                <td>PETICIÓN</td>
-                                                <td>Trámites administrativos</td>
-                                                <td><div class="container-html container-html-td"><p>ajwpdkopakwdopka owpkdpoawk</p></div></td>
-                                                <td>
-                                                    
-                                                </td>
-                                                <td>2020-12-15 22:53:41</td>
-                                                <td></td>
-                                                
-                                                <td>JULIO MARIO TORRES</td>
-                                                
-                                            </tr>
-                                            
-                                            <tr class="">
-                                                <td>
-                                                    <div class="d-flex justify-content-center align-content-center">
-                                                        <a title="Detalle" class="btn btn-sm btn-outline-info m-1" href="detalle_pqrs.jsp?id=12"  ><i class="fas fa-info-circle"></i></a>
-                                                    </div>
-                                                </td>
-                                                <td>12</td>
-                                                <td>CC 1193239634</td>
-                                                <td>Carlos Felipe Gonzalez Galvis</td>
-                                                <td>PETICIÓN</td>
-                                                <td>Solicitud de Información</td>
-                                                <td><div class="container-html container-html-td"><p>Descripcion de ejemplo</p></div></td>
-                                                <td>
-                                                    
-                                                </td>
-                                                <td>2020-12-16 15:47:23</td>
-                                                <td></td>
-                                                
-                                                <td>JULIO MARIO TORRES</td>
-                                                
-                                            </tr>
-                                            
-                                            <tr class="">
-                                                <td>
-                                                    <div class="d-flex justify-content-center align-content-center">
-                                                        <a title="Detalle" class="btn btn-sm btn-outline-info m-1" href="detalle_pqrs.jsp?id=14"  ><i class="fas fa-info-circle"></i></a>
-                                                    </div>
-                                                </td>
-                                                <td>14</td>
-                                                <td>NI 1093783472</td>
-                                                <td>brayan david  espitia orjuela</td>
-                                                <td>PETICIÓN</td>
-                                                <td>Trámites administrativos</td>
-                                                <td><div class="container-html container-html-td"><p>peticion de prueba</p></div></td>
-                                                <td>
-                                                    
-                                                </td>
-                                                <td>2021-03-06 03:30:30</td>
-                                                <td></td>
-                                                
-                                                <td>JULIO MARIO TORRES</td>
-                                                
-                                            </tr>
-                                            
-                                            <tr class="tr-select">
-                                                <td>
-                                                    <div class="d-flex justify-content-center align-content-center">
-                                                        <a title="Detalle" class="btn btn-sm btn-outline-info m-1" href="detalle_pqrs.jsp?id=1"  ><i class="fas fa-info-circle"></i></a>
-                                                    </div>
-                                                </td>
-                                                <td>1</td>
-                                                <td>PA 1093792354</td>
-                                                <td>OMAR  RAMÃN </td>
-                                                <td>PETICIÓN</td>
-                                                <td>Trámites administrativos</td>
-                                                <td><div class="container-html container-html-td"><p>Demora en proceso de x</p></div></td>
-                                                <td>
-                                                    
-                                                    <div class="container-html container-html-td"><p>Respuesta PQRS</p></div>
-                                                    
-                                                </td>
-                                                <td>2020-12-03 20:14:54</td>
-                                                <td>2020-12-03 20:16:35</td>
-                                                
-                                                <td>OMAR RAMÓN MONTES.</td>
-                                                
-                                            </tr>
-                                            
-                                            <tr class="tr-select">
-                                                <td>
-                                                    <div class="d-flex justify-content-center align-content-center">
-                                                        <a title="Detalle" class="btn btn-sm btn-outline-info m-1" href="detalle_pqrs.jsp?id=2"  ><i class="fas fa-info-circle"></i></a>
-                                                    </div>
-                                                </td>
-                                                <td>2</td>
-                                                <td>PA 1093792354</td>
-                                                <td>OMAR  RAMÃN </td>
-                                                <td>PETICIÓN</td>
-                                                <td>Trámites administrativos</td>
-                                                <td><div class="container-html container-html-td"><p>Lorem&nbsp;ipsum&nbsp;dolor&nbsp;sit&nbsp;amet&nbsp;consectetur&nbsp;adipisicing&nbsp;elit.&nbsp;Molestias,&nbsp;laborum&nbsp;corrupti&nbsp;perferendis&nbsp;veniam&nbsp;harum&nbsp;consequuntur?&nbsp;</p><p>Eaque&nbsp;illo&nbsp;non&nbsp;sit&nbsp;cum&nbsp;nobis&nbsp;ipsa,&nbsp;excepturi&nbsp;voluptate&nbsp;nesciunt&nbsp;cumque&nbsp;quis&nbsp;atque&nbsp;velit&nbsp;soluta!</p></div></td>
-                                                <td>
-                                                    
-                                                    <div class="container-html container-html-td"><p>Respuesta</p></div>
-                                                    
-                                                </td>
-                                                <td>2020-12-03 22:10:07</td>
-                                                <td>2020-12-22 21:43:22</td>
-                                                
-                                                <td>JULIO MARIO TORRES</td>
-                                                
-                                            </tr>
-                                            
-                                            <tr class="tr-select">
-                                                <td>
-                                                    <div class="d-flex justify-content-center align-content-center">
-                                                        <a title="Detalle" class="btn btn-sm btn-outline-info m-1" href="detalle_pqrs.jsp?id=3"  ><i class="fas fa-info-circle"></i></a>
-                                                    </div>
-                                                </td>
-                                                <td>3</td>
-                                                <td>CC 1090438722</td>
-                                                <td>JUAN  MORA </td>
-                                                <td>QUEJA - RECLAMO</td>
-                                                <td>Trato y Atención al Usuario.</td>
-                                                <td><div class="container-html container-html-td"><p>Lorem&nbsp;ipsum&nbsp;dolor&nbsp;sit&nbsp;amet&nbsp;consectetur&nbsp;adipisicing&nbsp;elit.&nbsp;Tenetur&nbsp;quibusdam&nbsp;blanditiis&nbsp;repellendus&nbsp;similique&nbsp;delectus&nbsp;ex&nbsp;asperiores&nbsp;molestias&nbsp;placeat&nbsp;cupiditate&nbsp;est&nbsp;deleniti&nbsp;eaque&nbsp;veniam&nbsp;neque,&nbsp;quisquam&nbsp;nam,&nbsp;quod&nbsp;ad&nbsp;unde&nbsp;officiis&nbsp;explicabo&nbsp;impedit&nbsp;rerum&nbsp;dolores?&nbsp;Earum&nbsp;optio&nbsp;nulla&nbsp;ipsam&nbsp;fugiat&nbsp;natus&nbsp;ea&nbsp;illo&nbsp;sed&nbsp;incidunt&nbsp;deserunt&nbsp;quos&nbsp;blanditiis&nbsp;aut&nbsp;inventore&nbsp;sunt&nbsp;quasi&nbsp;labore&nbsp;nam&nbsp;debitis,&nbsp;facere&nbsp;cum&nbsp;error&nbsp;distinctio!</p><p>&nbsp;Hic&nbsp;perferendis&nbsp;dolorem&nbsp;autem&nbsp;eius&nbsp;quis&nbsp;eos&nbsp;voluptas&nbsp;officiis&nbsp;facilis&nbsp;expedita&nbsp;veritatis&nbsp;nostrum&nbsp;dicta&nbsp;ab&nbsp;ipsum&nbsp;fuga&nbsp;cumque&nbsp;ullam&nbsp;temporibus&nbsp;aut,&nbsp;aliquid&nbsp;dolores&nbsp;quas&nbsp;quibusdam&nbsp;provident&nbsp;cum&nbsp;animi&nbsp;natus.&nbsp;Exercitationem&nbsp;in&nbsp;ipsam&nbsp;ipsa&nbsp;tenetur&nbsp;sunt&nbsp;nihil&nbsp;repudiandae&nbsp;tempore&nbsp;</p><p>deleniti&nbsp;quisquam&nbsp;obcaecati,&nbsp;iure&nbsp;impedit,&nbsp;id&nbsp;veritatis&nbsp;sapiente&nbsp;aliquam&nbsp;illo&nbsp;porro&nbsp;est&nbsp;facilis&nbsp;ducimus?&nbsp;Voluptatum,&nbsp;praesentium&nbsp;ea?&nbsp;Ullam&nbsp;laborum&nbsp;aut&nbsp;eos&nbsp;tempore&nbsp;non&nbsp;iure&nbsp;ipsam&nbsp;ut&nbsp;fugiat,&nbsp;fugit,&nbsp;minima&nbsp;et&nbsp;consectetur&nbsp;ipsum&nbsp;accusamus&nbsp;beatae&nbsp;minus&nbsp;perferendis&nbsp;aspernatur,&nbsp;vero&nbsp;odio&nbsp;in&nbsp;deleniti&nbsp;culpa&nbsp;ipsa&nbsp;qui&nbsp;dolorum&nbsp;sunt.&nbsp;Quod&nbsp;aspernatur&nbsp;facere,&nbsp;quidem&nbsp;maiores&nbsp;facilis&nbsp;ad&nbsp;dolores!</p></div></td>
-                                                <td>
-                                                    
-                                                    <div class="container-html container-html-td"><p>Respuesta</p></div>
-                                                    
-                                                </td>
-                                                <td>2020-12-03 22:11:29</td>
-                                                <td>2020-12-04 06:03:13</td>
-                                                
-                                                <td>MARIA JULIA BUITRAGO</td>
-                                                
-                                            </tr>
-                                            
-                                            <tr class="tr-select">
-                                                <td>
-                                                    <div class="d-flex justify-content-center align-content-center">
-                                                        <a title="Detalle" class="btn btn-sm btn-outline-info m-1" href="detalle_pqrs.jsp?id=6"  ><i class="fas fa-info-circle"></i></a>
-                                                    </div>
-                                                </td>
-                                                <td>6</td>
-                                                <td>CC 10945245</td>
-                                                <td>FEDERICO  NAVARRO </td>
-                                                <td>SUGERENCIA</td>
-                                                <td>Calidad de la Información Suministrada.</td>
-                                                <td><div class="container-html container-html-td"><p>llam&nbsp;temporibus&nbsp;aut,&nbsp;aliquid&nbsp;dolores&nbsp;quas&nbsp;quibusdam&nbsp;provident&nbsp;cum&nbsp;animi&nbsp;natus.&nbsp;Exercitationem&nbsp;in&nbsp;ipsam&nbsp;ipsa&nbsp;tenetur&nbsp;sunt&nbsp;nihil&nbsp;repudiandae&nbsp;tempore&nbsp;deleniti&nbsp;quisquam&nbsp;obcaecati,&nbsp;iure&nbsp;impedit,&nbsp;id&nbsp;veritatis&nbsp;sapiente&nbsp;aliquam&nbsp;illo&nbsp;por</p><p>ro&nbsp;est&nbsp;facilis&nbsp;ducimus?&nbsp;Voluptatum,&nbsp;praesentium&nbsp;ea?&nbsp;Ullam&nbsp;laborum&nbsp;aut&nbsp;eos&nbsp;tempore&nbsp;non&nbsp;iure&nbsp;ipsam&nbsp;ut&nbsp;fugiat,&nbsp;fugit,&nbsp;minima&nbsp;et&nbsp;consectetur&nbsp;ipsum&nbsp;accusamus&nbsp;beatae&nbsp;minus&nbsp;perferendis&nbsp;aspernatur,&nbsp;vero&nbsp;odio&nbsp;in&nbsp;deleniti&nbsp;culpa&nbsp;ipsa&nbsp;qui&nbsp;dolorum&nbsp;sunt.&nbsp;Quod&nbsp;aspernatur&nbsp;facere,&nbsp;quidem&nbsp;maiores&nbsp;facilis&nbsp;ad&nbsp;dolores!</p></div></td>
-                                                <td>
-                                                    
-                                                    <div class="container-html container-html-td"><p>Lorem&nbsp;ipsum&nbsp;dolor&nbsp;sit&nbsp;amet&nbsp;consectetur&nbsp;adipisicing&nbsp;elit.&nbsp;Tenetur&nbsp;quibusdam&nbsp;blanditiis&nbsp;repellendus&nbsp;similique&nbsp;delectus&nbsp;ex&nbsp;asperiores&nbsp;molestias&nbsp;placeat&nbsp;</p></div>
-                                                    
-                                                </td>
-                                                <td>2020-12-03 22:15:16</td>
-                                                <td>2020-12-03 22:19:41</td>
-                                                
-                                                <td>MARIA JULIA BUITRAGO</td>
-                                                
-                                            </tr>
-                                            
-                                            <tr class="tr-select">
-                                                <td>
-                                                    <div class="d-flex justify-content-center align-content-center">
-                                                        <a title="Detalle" class="btn btn-sm btn-outline-info m-1" href="detalle_pqrs.jsp?id=7"  ><i class="fas fa-info-circle"></i></a>
-                                                    </div>
-                                                </td>
-                                                <td>7</td>
-                                                <td>PA 1090492846</td>
-                                                <td>JUAN  MORA </td>
-                                                <td>PETICIÓN</td>
-                                                <td>Trámites administrativos</td>
-                                                <td><div class="container-html container-html-td"><p>Lorem&nbsp;ipsum&nbsp;dolor&nbsp;sit&nbsp;amet&nbsp;consectetur&nbsp;adipisicing&nbsp;elit.&nbsp;Tenetur&nbsp;quibusdam&nbsp;blanditiis&nbsp;repellendus&nbsp;similique&nbsp;delectus&nbsp;ex&nbsp;asperiores&nbsp;molestias&nbsp;placeat&nbsp;cupiditate&nbsp;est&nbsp;deleniti&nbsp;eaque&nbsp;veniam&nbsp;neque,&nbsp;quisquam&nbsp;nam,&nbsp;quod&nbsp;ad&nbsp;unde&nbsp;officiis&nbsp;explicabo&nbsp;impedit&nbsp;rerum&nbsp;dolores?&nbsp;Earum&nbsp;optio&nbsp;nulla&nbsp;ipsam&nbsp;fugiat&nbsp;natus&nbsp;ea&nbsp;illo&nbsp;sed&nbsp;incidunt&nbsp;deserunt&nbsp;quos&nbsp;blanditiis&nbsp;aut&nbsp;inventore&nbsp;sunt&nbsp;quasi&nbsp;labore&nbsp;nam&nbsp;debitis</p></div></td>
-                                                <td>
-                                                    
-                                                    <div class="container-html container-html-td"><p>quod&nbsp;ad&nbsp;unde&nbsp;officiis&nbsp;explicabo&nbsp;impedit&nbsp;rerum&nbsp;dolores?&nbsp;Earum&nbsp;optio&nbsp;nulla&nbsp;ipsam&nbsp;fugiat&nbsp;natus&nbsp;ea&nbsp;illo&nbsp;sed&nbsp;incidunt&nbsp;deserunt&nbsp;quos&nbsp;blanditiis&nbsp;aut&nbsp;inventore&nbsp;sunt&nbsp;quasi&nbsp;labore&nbsp;nam&nbsp;debitis</p></div>
-                                                    
-                                                </td>
-                                                <td>2020-12-04 06:10:20</td>
-                                                <td>2020-12-04 06:12:01</td>
-                                                
-                                                <td>JULIO MARIO TORRES</td>
-                                                
-                                            </tr>
-                                            
-                                            <tr class="tr-select">
-                                                <td>
-                                                    <div class="d-flex justify-content-center align-content-center">
-                                                        <a title="Detalle" class="btn btn-sm btn-outline-info m-1" href="detalle_pqrs.jsp?id=13"  ><i class="fas fa-info-circle"></i></a>
-                                                    </div>
-                                                </td>
-                                                <td>13</td>
-                                                <td>CC 1193239634</td>
-                                                <td>Carlos Felipe Gonzalez Galvis</td>
-                                                <td>SUGERENCIA</td>
-                                                <td>Trámites administrativos.</td>
-                                                <td><div class="container-html container-html-td"><p>Descripcion&nbsp;<strong>hola</strong></p></div></td>
-                                                <td>
-                                                    
-                                                    <div class="container-html container-html-td"><p>Damos Respuesta</p></div>
-                                                    
-                                                </td>
-                                                <td>2020-12-22 21:29:04</td>
-                                                <td>2020-12-22 21:32:37</td>
-                                                
-                                                <td>JULIO MARIO TORRES</td>
-                                                
-                                            </tr>
+                                         
                                             
                                             <tr class="tr-select">
                                                 <td>

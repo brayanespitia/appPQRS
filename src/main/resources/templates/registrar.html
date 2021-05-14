@@ -1,7 +1,8 @@
 <!doctype html>
 
 
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http:/www.thymeleaf.org/extras/spring-security">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http:/www.thymeleaf.org/extras/spring-security">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,18 +33,18 @@
 						class="nav-link" th:href="@{/solicitud/consultar}">Consultar</a> <a
 						class="nav-link" th:href="@{/solicitud/registrar}">Registrar
 						PQRS</a> <a class="nav-link" th:href="@{/registrarUsuario}">Registrar
-						Usuario</a> 
-						
-						
-					<a class="nav-link" th:href="@{login}">Iniciarsesión</a>
+						Usuario</a> <a class="nav-link" th:href="@{login}">Iniciarsesión</a>
 				</nav>
 			</div>
 		</header>
 
 
-		<div class="alert alert-warning" th:if="${warning != null}" th:text="${warning}"></div>
-		<div class="alert alert-success" th:if="${success != null}" th:text="${success}" role="alert"></div>
-		<div class="alert alert-danger" th:if="${danger != null}" th:text="${danger}" role="alert"></div>
+		<div class="alert alert-warning" th:if="${warning != null}"
+			th:text="${warning}"></div>
+		<div class="alert alert-success" th:if="${success != null}"
+			th:text="${success}" role="alert"></div>
+		<div class="alert alert-danger" th:if="${danger != null}"
+			th:text="${danger}" role="alert"></div>
 
 
 		<div class="container">
@@ -54,7 +55,7 @@
 					<h6 class="m-0 font-weight-bold text-primary">Registrar PQRS</h6>
 				</div>
 				<div class="card-body">
-					<form th:action="@{/solicitud/registrar}" th:object="${solicitud}" 
+					<form th:action="@{/solicitud/registrar}" th:object="${solicitud}"
 						method="post" enctype="multipart/form-data">
 						<div class="form-group">
 							<h5 class="card-title">Datos del usuario</h5>
@@ -63,9 +64,9 @@
 
 								<div class="col-lg-6">
 									<div class="form-group">
-										<label>Identificación *</label> <input
-											 type="text"
-											class="form-control" name="identificacion" required="required">
+										<label>Identificación *</label> <input type="text"
+											class="form-control" name="identificacion"
+											required="required">
 									</div>
 								</div>
 								<div class="col-lg-6">
@@ -79,9 +80,9 @@
 
 
 						</div>
- <input th:name="prueba" type="text">  </input>
+						
 						<div class="form-group">
-							<h5 class="card-title">Datos de la PQRS</h5>
+					
 							<div class="form-row">
 								<div class="col-lg-3">
 									<div class="form-group">
@@ -121,7 +122,7 @@
 
 											<option value="otro">Otro</option>
 
- 
+
 
 										</select>
 									</div>
@@ -153,7 +154,7 @@
 								<div class="col-md-12 d-flex justify-content-center">
 									<input type="submit" th:value="${titulo}"
 										class="btn btn-secondary" /> <a class="btn btn-danger m-1"
-										href="index.jsp">Cancelar</a>
+										href="">Cancelar</a>
 								</div>
 							</div>
 						</div>

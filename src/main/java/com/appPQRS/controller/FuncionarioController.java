@@ -17,6 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.appPQRS.entity.Funcionario;
 import com.appPQRS.service.FuncionarioService;
+import com.appPQRS.service.SolicitudService;
 
 @Controller
 @RequestMapping("/funcionario")
@@ -24,6 +25,8 @@ public class FuncionarioController {
 	
 	@Autowired
 	public FuncionarioService funcionarioService;
+	
+	public SolicitudService solicitudservice;
 	
 	/*
 	@GetMapping("/log")
@@ -135,5 +138,8 @@ public class FuncionarioController {
 		return "redirect:/funcionario/registrar";
 	}
 	
+	
+	
+
 	
 }

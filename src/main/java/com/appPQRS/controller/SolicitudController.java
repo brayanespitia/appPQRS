@@ -132,10 +132,7 @@ public class SolicitudController {
 		
 		Usuario usuario = solicitudService.findUsuarioBySolicitud(solicitud.getUsuario().getId());
 
-	
-
-		
-		
+				
 
 		
 		model.put("solicitud", solicitud);
@@ -151,5 +148,55 @@ public class SolicitudController {
 		
 		return "redirect:/solicitud/detalle/" + solicitudId;
 	}
+	
+	
+	@GetMapping("/listarPQRS")
+	public String listar(Model model) {
+	
+		model.addAttribute("titulo", "listado de pqrs");
+		model.addAttribute("solicitudes", solicitudService.findAll() );
+		model.addAttribute("usuarios", usuarioService.findAll());
+
+
+	
+		
+		
+		return "main/pqrs";
+	}
+	
+	@GetMapping("/detallito/{id}")
+	public String detallito(@PathVariable(value = "id") Long id, Map<String, Object> model, RedirectAttributes flash ) {
+
+		
+		
+		
+		Solicitud solicitud = solicitudService.findOne(id);
+
+		
+		if (solicitud == null) {
+
+			flash.addFlashAttribute("warning", "no PQRS CON ESA id");
+			return "redirect:/solicitud/consultar";
+		}
+		
+		Usuario usuario = solicitudService.findUsuarioBySolicitud(solicitud.getUsuario().getId());
+
+				
+
+		
+		model.put("solicitud", solicitud);
+		model.put("usuario", usuario);
+
+		return "main/detalle";
+	}
+	
+	@PostMapping("/detallito")
+	public String rutica (@RequestParam(value = "solicitudId") @PathVariable(value = "id") Long solicitudId,Long id, Model model, RedirectAttributes flash) {
+		System.out.println("hola" + solicitudId);
+			
+		
+		return "redirect:/solicitud/detallito/" + solicitudId;
+	}
+	
 
 }
