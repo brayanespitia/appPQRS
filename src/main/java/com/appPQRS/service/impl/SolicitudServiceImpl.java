@@ -46,7 +46,7 @@ public class SolicitudServiceImpl implements SolicitudService {
 	@Override
 	public Solicitud findOne(Long id) {
 		// TODO Auto-generated method stub
-		return solicitudDao.findById(id).get();
+		return solicitudDao.findById(id).orElse(null);
 	}
 
 	@Override

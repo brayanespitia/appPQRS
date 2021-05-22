@@ -36,14 +36,27 @@
 			</div>
 		</header>
 
+
+	<div class="alert alert-warning" th:if="${warning != null}"
+			th:text="${warning}"></div>
+		<div class="alert alert-success" th:if="${success != null}"
+			th:text="${success}" role="alert"></div>
+		<div class="alert alert-danger" th:if="${danger != null}"
+			th:text="${danger}" role="alert"></div>
+
+
 		<div class="container">
 
 			<div class="card shadow mb-4">
 				<div class="card-header py-3">
 
 					<h6 class="m-0 font-weight-bold text-primary">Detalle de PQRS</h6>
+					
+					
 				</div>
 				<div class="card-body">
+				
+				
 					<div class="form-group">
 						<div class="form-row">
 							<div class="col-lg-3">
@@ -122,6 +135,8 @@
 							</div>
 						</div>
 					</div>
+					
+					
 					<div class="form-group">
 						<div class="form-row">
 							<div class="col-lg-3">
@@ -192,21 +207,32 @@
 					</div>
 					<div class="form-row">
 
-						<form th:action="@{/solicitud/registrar}" th:object="${solicitud}">
+						<form th:action="@{/solicitud/registrar}" th:object="${solicitud}" method="post">
 
 
 							<div class="col-12">
 								<div class="form-group">
 									<label>Respuesta</label>
-									<textarea th:field="*{respuesta}" class="form-control"
-										
-										
-										name="descripcion" maxlength="2000" required minlength="10"></textarea>
+									<label>Descripción *</label>
+										<textarea th:field="*{descripcion}" class="form-control"
+											name="descripcion" maxlength="2000" required minlength="10"></textarea>
 								</div>
 								
-								<input type="submit" 
+									<div class="col-lg-6">
+									<div class="form-group">
+									 <input type="hidden" th:value=${usuario.identificacion}
+											class="form-control" name="identificacion"
+											required="required">
+									</div>
+								</div>
+								
+								
+							<input type="submit" th:value="${titulo}"
 										class="btn btn-primary" />
 							</div>
+							
+						<input type="hidden" th:field="*{usuario.identificacion}"/>
+						
 						</form>
 
 
