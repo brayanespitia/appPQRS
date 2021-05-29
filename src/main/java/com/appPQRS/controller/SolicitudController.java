@@ -68,7 +68,7 @@ public class SolicitudController {
 			return "redirect:/solicitud/registrar";
 
 		}
-		System.out.println("papu " + user.getIdentificacion());
+		System.out.println("test " + user.getIdentificacion());
 
 		if (result.hasErrors()) {
 
@@ -76,12 +76,9 @@ public class SolicitudController {
 			System.out.println("prueba 2");
 			return "redirect:/solicitud/registrar";
 
-		}
-		
-		
+		}			
 
 		// System.out.println("prueba 2" + solicitud.getUsuario().getIdentificacion());
-
 		solicitud.setUsuario(user);
 		solicitudService.save(solicitud);
 		
@@ -158,11 +155,16 @@ public class SolicitudController {
 	}
 
 	@GetMapping("/listarPQRS")
-	public String listar(Model model) {
+	public String listar(@PathVariable(value = "id") Long id,Model model) {
+		
+		Solicitud solicitud = solicitudService.findOne(id);
 
+		model.addAttribute("solicitud", solicitud);
+		
 		model.addAttribute("titulo", "listado de pqrs");
 		model.addAttribute("solicitudes", solicitudService.findAll());
 		model.addAttribute("usuarios", usuarioService.findAll());
+		
 
 		return "main/pqrs";
 	}
