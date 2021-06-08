@@ -24,7 +24,7 @@ public class LoginController {
 			return "redirect:/funcionario/loge";
 		}
 		if (error != null) {
-			model.addAttribute("error", "Error al iniciar sesion clave o usuario paila");
+			model.addAttribute("danger", "Error al iniciar sesion clave o usuario incorrectos");
 		}
 		if(logout !=null) {
 			

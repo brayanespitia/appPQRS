@@ -81,9 +81,14 @@ public class SolicitudController {
 		// System.out.println("prueba 2" + solicitud.getUsuario().getIdentificacion());
 		solicitud.setUsuario(user);
 		solicitudService.save(solicitud);
+		if (solicitud.getRespuesta() !=null) {
+			
+			return "redirect:/solicitud/listarPQRS";
+		}
+		
 		
 		status.setComplete();
-		System.out.println("prueba 3");
+	
 		flash.addFlashAttribute("success",
 				"La PQRS se ha registrado Exitosamente su numero de radicado es :  " + solicitud.getId());
 		return "redirect:/solicitud/registrar";
@@ -136,6 +141,7 @@ public class SolicitudController {
 
 			flash.addFlashAttribute("warning", "no PQRS CON ESA id");
 			return "redirect:/solicitud/consultar";
+			
 		}
 
 		Usuario usuario = solicitudService.findUsuarioBySolicitud(solicitud.getUsuario().getId());
@@ -155,11 +161,9 @@ public class SolicitudController {
 	}
 
 	@GetMapping("/listarPQRS")
-	public String listar(@PathVariable(value = "id") Long id,Model model) {
+	public String listar(Model model) {
 		
-		Solicitud solicitud = solicitudService.findOne(id);
-
-		model.addAttribute("solicitud", solicitud);
+	
 		
 		model.addAttribute("titulo", "listado de pqrs");
 		model.addAttribute("solicitudes", solicitudService.findAll());
