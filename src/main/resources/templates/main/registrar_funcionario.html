@@ -1,4 +1,5 @@
 
+
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -17,7 +18,7 @@
 <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
 <link rel="stylesheet" th:href="@{/sb-admin-2/sb-admin-2.min.css}">
 <link rel="stylesheet" th:href="@{/css/styles3.css}">
-        <title>Listados - PQRS</title>
+        <title>Funcionarios - PQRS</title>
     </head>
     <body>
         <!-- Page Wrapper -->
@@ -149,10 +150,7 @@
         <div class="topbar-divider d-none d-sm-block"></div>
 
         <!-- Nav Item - User Information -->
-     
-            
-            <!-- Dropdown - User Information -->
-        	<li class="nav-item dropdown no-arrow"><a
+   	<li class="nav-item dropdown no-arrow"><a
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> <span
@@ -177,97 +175,113 @@
 
 
 							</div></li>
-       
 
     </ul>
 
 </nav>
-<!-- End of Topbar -->    
+<!-- End of Topbar -->     
 
+                    <!-- Begin Page Content -->
+                    
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
 
+    <div class="alert alert-warning" th:if="${warning != null}"
+			th:text="${warning}"></div>
+		<div class="alert alert-success" th:if="${success != null}"
+			th:text="${success}" role="alert"></div>
+		<div class="alert alert-danger" th:if="${danger != null}"
+			th:text="${danger}" role="alert"></div>
+
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Listado de PQRS</h6>
+
+                                <h6 class="m-0 font-weight-bold text-primary"><a class="btn btn-sm btn-outline-dark mr-1" th:href="@{/funcionario/listar}"><i class="fas fa-arrow-circle-left"></i> Volver</a>Registrar Funcionario</h6>
                             </div>
                             <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-sm table-bordered data-table" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr>
-                                                <th>Acción</th>
-                                                <th>Radicado</th>
-                                                <th>Identificación de usuario</th>
-                                                <th>Usuario</th>
-                                                <th>Tipo de PQRS</th>
-                                                <th>Motivo de PQRS</th>
-                                                <th>Solicitud</th>
-                                                <th>Respuesta</th>
-                                                <th>Fecha de registro</th>
-                                                <th>Fecha de respuesta</th>
-                                                    
-                                                <th>Funcionario</th>
-                                                    
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            
-                                            <tr class="" th:each="solicitud: ${solicitudes}" >
-                                                <td   >
-                                                    <div class="d-flex justify-content-center align-content-center">
-                                                        <a title="Detalle" class="btn btn-sm btn-outline-info m-1"  th:href="@{/solicitud/detallito/}+ ${solicitud.id}" ><i class="fas fa-info-circle"></i></a>
-                                                    </div>
-                                                </td>
-                                                <td th:text="${solicitud.id}" ></td>
-                                                <td th:text="${solicitud.usuario.identificacion}" ></td>
-                                                <td th:text="${solicitud.usuario.primerNombre}"> </td>
-                                                <td th:text="${solicitud.tipoSolicitud}"></td>
-                                                <td th:text="${solicitud.motivoSolicitud}"></td>
-                                                <td th:text="${solicitud.descripcion}" ></td>
-                                                <td th:text="${solicitud.respuesta}">    </td>                                          
-                                                
-                                                <td th:text="${solicitud.fechaRegistro}" ></td>
-                                                <td></td>
-                                                
-                                                <td>PEDRO ANTONIO MOLINA</td>
-                                                
-                                            </tr>
-                                            
-                                         
-                                            
-                                            <tr class="tr-select">
-                                                <td>
-                                                    <div class="d-flex justify-content-center align-content-center">
-                                                        <a title="Detalle" class="btn btn-sm btn-outline-info m-1" href="detalle_pqrs.jsp?id=15"  ><i class="fas fa-info-circle"></i></a>
-                                                    </div>
-                                                </td>
-                                                <td>15</td>
-                                                <td>NI 999999</td>
-                                                <td>brayan david espitia orjuela</td>
-                                                <td>SUGERENCIA</td>
-                                                <td>Oportunidad en el Servicio.</td>
-                                                <td><div class="container-html container-html-td"><p>prueba de consulta para el aplicativo</p></div></td>
-                                                <td>
-                                                    
-                                                    <div class="container-html container-html-td"><p>ya le respondi su pqrs con exito</p></div>
-                                                    
-                                                </td>
-                                                <td>2021-04-08 03:02:43</td>
-                                                <td>2021-04-08 03:06:20</td>
-                                                
-                                                <td>JULIO MARIO TORRES</td>
-                                                
-                                            </tr>
-                                            
-                                            
-                                        </tbody>
-                                    </table>
-                                </div>
+                                <form th:action="@{/funcionario/registrar}" th:object="${funcionario}" method="post">
+                                    <div class="form-group">
+                                        <div class="form-row">
+                                            <div class="col-lg-2 d-flex align-items-center">
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" id="es_administrador" name="es_administrador" >
+                                                    <label class="form-check-label" for="es_administrador">Es Administrador</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <div class="form-group">
+                                                    <label>Tipo de Identificación *</label>
+                                                    <select class="form-control" th:field="*{tipoIdentificacion}" name="tipo_id" required="true">
+                                                        <option value="">Seleccione ..</option>
+                                                        
+                                                        <option value="4">Pasaporte</option>
+                                                        
+                                                        <option value="3">Cédula de Extranjeria</option>
+                                                        
+                                                        <option value="2">Tarjeta de Identidad</option>
+                                                        
+                                                        <option value="1">Cédula de Ciudadania</option>
+                                                        
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-7">
+                                                <div class="form-group">
+                                                    <label>Identificación *</label>
+                                                    <input type="text" th:field="*{identificacion}" class="form-control" name="identificacion" required="true">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label>Código *</label>
+                                                    <input type="number" th:field="*{codigoInterno}" class="form-control" name="codigo_interno" required="true">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-8">
+                                                <div class="form-group">
+                                                    <label>Nombre Completo *</label>
+                                                    <input type="text" th:field="*{nombreCompleto}" class="form-control" name="nombre_completo" required="true">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label>Celular</label>
+                                                    <input type="text"  th:field="*{celular}"class="form-control" name="celular">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label>Correo</label>
+                                                    <input type="text" th:field="*{correo}" class="form-control" name="correo">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label>Cargo</label>
+                                                    <input type="text" th:field="*{cargo}" class="form-control" name="cargo">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="col-md-12 d-flex justify-content-center">
+                                            <button class="btn btn-success m-1" type="submit">Guardar</button>
+                                            <a class="btn btn-danger m-1" th:href="@{/funcionario/loge}">Cancelar</a>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                     <!-- /.container-fluid -->
+
+                </div>
+               
 
                 </div>
                 <!-- End of Main Content -->
@@ -285,7 +299,8 @@
             <!-- End of Content Wrapper -->
         </div>
         <!-- End of Page Wrapper -->
-	<script
+        
+<script
 		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
 		integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
 		crossorigin="anonymous"></script>
@@ -300,8 +315,5 @@
 	<script th:src="@{/js/scripts.js}"></script>
 	<script src="//cdn.ckeditor.com/4.15.1/basic/ckeditor.js"></script>
 
-        <script>
-            SearchTable()
-        </script>
     </body>
 </html>

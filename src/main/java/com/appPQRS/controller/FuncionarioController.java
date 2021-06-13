@@ -126,7 +126,7 @@ public class FuncionarioController {
 		model.put("titulo", "formulario funcionario");
 		
 		
-		return "registrarFuncionario";
+		return "main/registrar_funcionario";
 	}
 	
 	@PostMapping("/registrar")
@@ -140,6 +140,10 @@ public class FuncionarioController {
 	
 	
 	
-
+@GetMapping("/registroTiposolicitud")
+public String tipoSolicitud() {
+	
+	return "main/registrar_tipo_solicitud";
+}
 	
 }

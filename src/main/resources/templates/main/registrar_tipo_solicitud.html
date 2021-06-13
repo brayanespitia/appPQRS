@@ -1,4 +1,5 @@
 
+
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -17,7 +18,7 @@
 <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
 <link rel="stylesheet" th:href="@{/sb-admin-2/sb-admin-2.min.css}">
 <link rel="stylesheet" th:href="@{/css/styles3.css}">
-        <title>Listados - PQRS</title>
+        <title>Funcionarios - PQRS</title>
     </head>
     <body>
         <!-- Page Wrapper -->
@@ -149,10 +150,7 @@
         <div class="topbar-divider d-none d-sm-block"></div>
 
         <!-- Nav Item - User Information -->
-     
-            
-            <!-- Dropdown - User Information -->
-        	<li class="nav-item dropdown no-arrow"><a
+   	<li class="nav-item dropdown no-arrow"><a
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> <span
@@ -177,99 +175,50 @@
 
 
 							</div></li>
-       
 
     </ul>
 
 </nav>
-<!-- End of Topbar -->    
+<!-- End of Topbar -->     
 
                     <!-- Begin Page Content -->
-                    <div class="container-fluid">
+                    
+                    
+                    
+                       <div class="container-fluid">
 
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Listado de PQRS</h6>
+
+                                <h6 class="m-0 font-weight-bold text-primary"><a class="btn btn-sm btn-outline-dark mr-1" th:href="@{/funcionario/tipoSolicitud}" ><i class="fas fa-arrow-circle-left" ></i> Volver</a>Registrar Tipo Solicitud</h6>
                             </div>
                             <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-sm table-bordered data-table" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr>
-                                                <th>Acción</th>
-                                                <th>Radicado</th>
-                                                <th>Identificación de usuario</th>
-                                                <th>Usuario</th>
-                                                <th>Tipo de PQRS</th>
-                                                <th>Motivo de PQRS</th>
-                                                <th>Solicitud</th>
-                                                <th>Respuesta</th>
-                                                <th>Fecha de registro</th>
-                                                <th>Fecha de respuesta</th>
-                                                    
-                                                <th>Funcionario</th>
-                                                    
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            
-                                            <tr class="" th:each="solicitud: ${solicitudes}" >
-                                                <td   >
-                                                    <div class="d-flex justify-content-center align-content-center">
-                                                        <a title="Detalle" class="btn btn-sm btn-outline-info m-1"  th:href="@{/solicitud/detallito/}+ ${solicitud.id}" ><i class="fas fa-info-circle"></i></a>
-                                                    </div>
-                                                </td>
-                                                <td th:text="${solicitud.id}" ></td>
-                                                <td th:text="${solicitud.usuario.identificacion}" ></td>
-                                                <td th:text="${solicitud.usuario.primerNombre}"> </td>
-                                                <td th:text="${solicitud.tipoSolicitud}"></td>
-                                                <td th:text="${solicitud.motivoSolicitud}"></td>
-                                                <td th:text="${solicitud.descripcion}" ></td>
-                                                <td th:text="${solicitud.respuesta}">    </td>                                          
-                                                
-                                                <td th:text="${solicitud.fechaRegistro}" ></td>
-                                                <td></td>
-                                                
-                                                <td>PEDRO ANTONIO MOLINA</td>
-                                                
-                                            </tr>
-                                            
-                                         
-                                            
-                                            <tr class="tr-select">
-                                                <td>
-                                                    <div class="d-flex justify-content-center align-content-center">
-                                                        <a title="Detalle" class="btn btn-sm btn-outline-info m-1" href="detalle_pqrs.jsp?id=15"  ><i class="fas fa-info-circle"></i></a>
-                                                    </div>
-                                                </td>
-                                                <td>15</td>
-                                                <td>NI 999999</td>
-                                                <td>brayan david espitia orjuela</td>
-                                                <td>SUGERENCIA</td>
-                                                <td>Oportunidad en el Servicio.</td>
-                                                <td><div class="container-html container-html-td"><p>prueba de consulta para el aplicativo</p></div></td>
-                                                <td>
-                                                    
-                                                    <div class="container-html container-html-td"><p>ya le respondi su pqrs con exito</p></div>
-                                                    
-                                                </td>
-                                                <td>2021-04-08 03:02:43</td>
-                                                <td>2021-04-08 03:06:20</td>
-                                                
-                                                <td>JULIO MARIO TORRES</td>
-                                                
-                                            </tr>
-                                            
-                                            
-                                        </tbody>
-                                    </table>
-                                </div>
+                                <form action="/registrar-tipo-solicitud" method="post">
+                                    <div class="form-group">
+                                        <div class="form-row">
+                                            <div class="col-lg-7">
+                                                <div class="form-group">
+                                                    <label>Descripción *</label>
+                                                    <input type="text" class="form-control" name="descripcion" required="true">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="col-md-12 d-flex justify-content-center">
+                                            <a class="btn btn-success m-1" th:href="@{/funcionario/tipoSolicitud}" type="submit">Guardar</a>
+                                            <a class="btn btn-danger m-1" th:href="@{/funcionario/tipoSolicitud}">Cancelar</a>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                     <!-- /.container-fluid -->
 
                 </div>
+                   
                 <!-- End of Main Content -->
                 <!-- Footer -->
 <footer class="sticky-footer bg-white">
@@ -285,7 +234,8 @@
             <!-- End of Content Wrapper -->
         </div>
         <!-- End of Page Wrapper -->
-	<script
+        
+<script
 		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
 		integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
 		crossorigin="anonymous"></script>
@@ -300,8 +250,5 @@
 	<script th:src="@{/js/scripts.js}"></script>
 	<script src="//cdn.ckeditor.com/4.15.1/basic/ckeditor.js"></script>
 
-        <script>
-            SearchTable()
-        </script>
     </body>
 </html>

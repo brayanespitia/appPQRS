@@ -68,6 +68,13 @@ public class UsuarioController {
 		return "redirect:/registrarUsuario";
 	}
 	
+	
+	@GetMapping("/tipoUsuario")
+	public String tipoUsuario() {
+		
+		return "main/registrar_tipo_usuario";
+		
+	}
 
 
 }
