@@ -48,7 +48,7 @@ public class SolicitudController {
 		Usuario usuario = new Usuario();
 		model.put("solicitud", solicitud);
 		model.put("usuario", usuario);
-		model.put("titulo", "formulario solicitud");
+		model.put("titulo", "enviar");
 		return "registrar";
 
 	}
