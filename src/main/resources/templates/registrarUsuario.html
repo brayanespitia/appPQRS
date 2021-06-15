@@ -18,199 +18,202 @@
 	rel="stylesheet">
 <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
 <link rel="stylesheet" th:href="@{/sb-admin-2/sb-admin-2.min.css}">
-        <!-- Core theme CSS (includes Bootstrap)-->
-       <link rel="stylesheet" th:href="@{/css/cover.css}">
-    </head>
+<!-- Core theme CSS (includes Bootstrap)-->
+<link rel="stylesheet" th:href="@{/css/cover.css}">
+</head>
 
-          <!-- Navigation-->
-    
-    
-    <div class="container d-block p-3">
-		<header class="masthead mb-5">
-			<div class="inner">
-				<h3 class="masthead-brand">PQRS - UFPS</h3>
-				<nav class="nav nav-masthead justify-content-center">
-					<a class="nav-link active" th:href="@{/}">Inicio</a> <a
-						class="nav-link" th:href="@{/solicitud/consultar}">Consultar</a> <a
-						class="nav-link" th:href="@{/solicitud/registrar}">Registrar
-						PQRS</a> <a class="nav-link" th:href="@{/registrarUsuario}">Registrar
-						Usuario</a> <a class="nav-link" th:href="@{/login}">Iniciar sesión</a>
-				</nav>
+<!-- Navigation-->
+
+
+<div class="container d-block p-3">
+	<header class="masthead mb-5">
+		<div class="inner">
+			<h3 class="masthead-brand">PQRS - UFPS</h3>
+			<nav class="nav nav-masthead justify-content-center">
+				<a class="nav-link active" th:href="@{/}">Inicio</a> <a
+					class="nav-link" th:href="@{/solicitud/consultar}">Consultar</a> <a
+					class="nav-link" th:href="@{/solicitud/registrar}">Registrar
+					PQRS</a> <a class="nav-link" th:href="@{/registrarUsuario}">Registrar
+					Usuario</a> <a class="nav-link" th:href="@{/login}">Iniciar sesión</a>
+			</nav>
+		</div>
+	</header>
+
+	<div class="alert alert-warning" th:if="${warning != null}"
+		th:text="${warning}"></div>
+	<div class="alert alert-success" th:if="${success != null}"
+		th:text="${success}" role="alert"></div>
+	<div class="alert alert-danger" th:if="${danger != null}"
+		th:text="${danger}" role="alert"></div>
+
+
+	<!-- Masthead-->
+
+
+
+	<div class="container">
+
+		<div class="card shadow mb-4">
+			<div class="card-header py-3">
+
+				<h6 class="m-0 font-weight-bold text-primary">Registrar PQRS</h6>
 			</div>
-		</header>
-       
-       <div class="alert alert-warning" th:if="${warning != null}"
-			th:text="${warning}"></div>
-		<div class="alert alert-success" th:if="${success != null}"
-			th:text="${success}" role="alert"></div>
-		<div class="alert alert-danger" th:if="${danger != null}"
-			th:text="${danger}" role="alert"></div>
-       
-       
-   <!-- Masthead-->
-      
+			<div class="card-body">
 
 
-<div class="container">
-
-			<div class="card shadow mb-4">
-				<div class="card-header py-3">
-
-					<h6 class="m-0 font-weight-bold text-primary">Registrar PQRS</h6>
-				</div>
-				<div class="card-body">
+				<form th:action="@{/registrarUsuario}" th:object="${usuario}"
+					method="post" enctype="multipart/form-data">
 
 
-					<form th:action="@{/registrarUsuario}" th:object="${usuario}"
-						method="post" enctype="multipart/form-data">
-
-
-						<div class="form-group">
-							<h5 class="card-title">Datos del usuario</h5>
-							<div class="form-row">
-								<div class="col-lg-2">
-									<div class="form-group">
-										<label>Tipo de Usuario *</label> <select th:field="*{tipoUsuario}" class="form-control"
-											name="tipo_usuario">
-											<option value="" disabled>Seleccione ..</option>
-
-											<option value="egresado">EGRESADO</option>
-
-											<option value="persona natural">PERSONA NATURAL</option>
-												<option value="estudiante">ESTUDIANTE</option>
-													<option value="administrativo">ADMINISTRATIVO</option>
-
-										</select>
-									</div>
-								</div>
-								<div class="col-lg-2">
-									<div class="form-group">
-										<label >Tipo de Documento *</label> <select th:field="*{tipoIdentificacion}"
-											class="form-control" name="tipo_identificacion">
-											<option value="" disabled>Seleccione ..</option>
-
-											<option value="pasaporte">Pasaporte</option>
-
-											<option  value="cedula de extanjeria">Cédula de Extranjeria</option>
-
-											<option   value="tarjeta de identidad">Tarjeta de Identidad</option>
-
-											<option value="cedula de ciudadania">Cédula de Ciudadania</option>
-
-										</select>
-									</div>
-								</div>
-								<div class="col-lg-6">
-									<div class="form-group">
-										<label>Identificación *</label> <input type="text"
-											th:field="*{identificacion}" class="form-control"
-											required="true"> <small
-											class="form-text text-danger"
-											th:if="${#fields.hasErrors('identificacion')}"
-											th:errors="*{identificacion}"></small>
-
-
-
-									</div>
-								</div>
-								<div class="col-lg-2">
-									<div class="form-group">
-										<label>Código</label> <input type="number"
-											th:field="*{codigointerno}" class="form-control"
-											name="codigo_interno" maxlength="5" max="99999">
-									</div>
-								</div>
-							</div>
-							<div class="form-row">
-								<div class="col-lg-3">
-									<div class="form-group">
-										<label>Primer Nombre *</label> <input type="text"
-											th:field="*{primerNombre}" class="form-control">
-									</div>
-								</div>
-								<div class="col-lg-3">
-									<div class="form-group">
-										<label>Segundo Nombre</label> <input type="text"
-											th:field="*{SegundoNombre}" class="form-control"
-											name="segundo_nombre" maxlength="15">
-									</div>
-								</div>
-								<div class="col-lg-3">
-									<div class="form-group">
-										<label>Primer Apellido *</label> <input type="text"
-											th:field="*{primerApellido}" class="form-control"
-											name="primer_apellido"  maxlength="15">
-									</div>
-								</div>
-								<div class="col-lg-3">
-									<div class="form-group">
-										<label>Segundo apellido</label> <input type="text"
-											th:field="*{segundoApellido}" class="form-control"
-											name="segundo_apellido" maxlength="15">
-									</div>
-								</div>
-							</div>
-							<div class="form-row">
-								<div class="col-lg-3">
-									<div class="form-group">
-										<label>Dirección *</label> <input type="text"
-											th:field="*{direccion}" class="form-control" name="direccion"
-											required="true" maxlength="30">
-									</div>
-								</div>
-								<div class="col-lg-3">
-									<div class="form-group">
-										<label>Correo *</label> <input type="email"
-											th:field="*{correo}" class="form-control" name="correo"
-											required="true" maxlength="30">
-									</div>
-								</div>
-								<div class="col-lg-3">
-									<div class="form-group">
-										<label>Celular</label> <input type="text"
-											th:field="*{celular}" class="form-control" name="celular"
-											maxlength="15">
-									</div>
-								</div>
-								<div class="col-lg-3">
-									<div class="form-group">
-										<label>Teléfono</label> <input type="text"
-											th:field="*{telefonoFijo}" class="form-control"
-											name="telefono" maxlength="7">
-									</div>
-								</div>
-							</div>
-						</div>
-
-
-
+					<div class="form-group">
+						<h5 class="card-title">Datos del usuario</h5>
 						<div class="form-row">
-							<div class="col-md-12 d-flex justify-content-center">
+							<div class="col-lg-2">
+								<div class="form-group">
+									<label>Tipo de Usuario *</label> <select
+										th:field="*{tipoUsuario}" class="form-control"
+										name="tipo_usuario">
+										<option value="" disabled>Seleccione ..</option>
 
-								<input type="submit" th:value="${titulo}"
-									class="btn btn-secondary" /> <a class="btn btn-danger m-1"
-									href="index.jsp">Cancelar</a>
+										<option value="egresado">EGRESADO</option>
+
+										<option value="persona natural">PERSONA NATURAL</option>
+										<option value="estudiante">ESTUDIANTE</option>
+										<option value="administrativo">ADMINISTRATIVO</option>
+
+									</select>
+								</div>
+							</div>
+							<div class="col-lg-2">
+								<div class="form-group">
+									<label>Tipo de Documento *</label> <select
+										th:field="*{tipoIdentificacion}" class="form-control"
+										name="tipo_identificacion">
+										<option value="" disabled>Seleccione ..</option>
+
+										<option value="pasaporte">Pasaporte</option>
+
+										<option value="cedula de extanjeria">Cédula de
+											Extranjeria</option>
+
+										<option value="tarjeta de identidad">Tarjeta de
+											Identidad</option>
+
+										<option value="cedula de ciudadania">Cédula de
+											Ciudadania</option>
+
+									</select>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="form-group">
+									<label>Identificación *</label> <input type="text"
+										th:field="*{identificacion}" class="form-control"
+										required="true"> <small class="form-text text-danger"
+										th:if="${#fields.hasErrors('identificacion')}"
+										th:errors="*{identificacion}"></small>
+
+
+
+								</div>
+							</div>
+							<div class="col-lg-2">
+								<div class="form-group">
+									<label>Código</label> <input type="number"
+										th:field="*{codigointerno}" class="form-control"
+										name="codigo_interno" maxlength="5" max="99999">
+								</div>
 							</div>
 						</div>
-				</div>
-				</form>
+						<div class="form-row">
+							<div class="col-lg-3">
+								<div class="form-group">
+									<label>Primer Nombre *</label> <input type="text"
+										th:field="*{primerNombre}" class="form-control">
+								</div>
+							</div>
+							<div class="col-lg-3">
+								<div class="form-group">
+									<label>Segundo Nombre</label> <input type="text"
+										th:field="*{SegundoNombre}" class="form-control"
+										name="segundo_nombre" maxlength="15">
+								</div>
+							</div>
+							<div class="col-lg-3">
+								<div class="form-group">
+									<label>Primer Apellido *</label> <input type="text"
+										th:field="*{primerApellido}" class="form-control"
+										name="primer_apellido" maxlength="15">
+								</div>
+							</div>
+							<div class="col-lg-3">
+								<div class="form-group">
+									<label>Segundo apellido</label> <input type="text"
+										th:field="*{segundoApellido}" class="form-control"
+										name="segundo_apellido" maxlength="15">
+								</div>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="col-lg-3">
+								<div class="form-group">
+									<label>Dirección *</label> <input type="text"
+										th:field="*{direccion}" class="form-control" name="direccion"
+										required="true" maxlength="30">
+								</div>
+							</div>
+							<div class="col-lg-3">
+								<div class="form-group">
+									<label>Correo *</label> <input type="email"
+										th:field="*{correo}" class="form-control" name="correo"
+										required="true" maxlength="30">
+								</div>
+							</div>
+							<div class="col-lg-3">
+								<div class="form-group">
+									<label>Celular</label> <input type="text" th:field="*{celular}"
+										class="form-control" name="celular" maxlength="15">
+								</div>
+							</div>
+							<div class="col-lg-3">
+								<div class="form-group">
+									<label>Teléfono</label> <input type="text"
+										th:field="*{telefonoFijo}" class="form-control"
+										name="telefono" maxlength="7">
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+
+					<div class="form-row">
+						<div class="col-md-12 d-flex justify-content-center">
+
+							<input type="submit" th:value="${titulo}"
+								class="btn btn-secondary" /> <a class="btn btn-danger m-1"
+								href="index.jsp">Cancelar</a>
+						</div>
+					</div>
 			</div>
-			 
-	
-</div>
-			 
-      
+			</form>
+		</div>
 
-     
-    <!-- Footer-->
-    
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- SimpleLightbox plugin JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
-        <!-- Core theme JS-->
-        <script th:src="@{/js/scripts.js}"></script>
-    </body>
 
-    
+	</div>
+
+
+
+
+	<!-- Footer-->
+
+	<!-- Bootstrap core JS-->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- SimpleLightbox plugin JS-->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
+	<!-- Core theme JS-->
+	<script th:src="@{/js/scripts.js}"></script>
+	</body>
 </html>
